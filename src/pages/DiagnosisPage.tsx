@@ -44,35 +44,35 @@ export default function DiagnosisPage() {
     const strengths = [];
     if (skillLevel === 'advanced') {
       strengths.push({
-        title: 'Strong Foundation',
-        description: 'Your established knowledge base accelerates advanced learning',
+        title: 'Base Sólida',
+        description: 'Seu conhecimento estabelecido acelera aprendizado avançado',
         score: 85,
       });
     }
     if (goals.includes('programming') || goals.includes('ai')) {
       strengths.push({
-        title: 'Future-Ready Focus',
-        description: 'Your discipline choices align with emerging mastery paths',
+        title: 'Foco Preparado para o Futuro',
+        description: 'Suas escolhas de disciplina se alinham com caminhos emergentes',
         score: 78,
       });
     }
     if (userData?.timePerDay === '2hours') {
       strengths.push({
-        title: 'Dedication Capacity',
-        description: 'Time commitment enables deep comprehension',
+        title: 'Capacidade de Dedicação',
+        description: 'Investimento de tempo permite compreensão profunda',
         score: 90,
       });
     }
     if (strengths.length < 3) {
       strengths.unshift({
-        title: 'Growth Mindset',
-        description: 'Your commitment to learning is the foundation of excellence',
+        title: 'Mentalidade de Crescimento',
+        description: 'Seu compromisso com o aprendizado é a base do sucesso',
         score: 75,
       });
     }
 
     baseResults.push({
-      category: 'Proficiencies',
+      category: 'Competências',
       icon: Check,
       items: strengths.slice(0, 3),
     });
@@ -80,34 +80,34 @@ export default function DiagnosisPage() {
     const weaknesses = [];
     if (userData?.difficulties?.includes('time')) {
       weaknesses.push({
-        title: 'Time Optimization',
-        description: 'Structured scheduling will enhance your progress',
+        title: 'Otimização de Tempo',
+        description: 'Agendamento estruturado aprimorará seu progresso',
         score: 35,
       });
     } else {
       weaknesses.push({
-        title: 'Consistency Building',
-        description: 'Daily habits form the bedrock of mastery',
+        title: 'Construção de Consistência',
+        description: 'Hábitos diários formam a base do domínio',
         score: 45,
       });
     }
     if (skillLevel === 'beginner') {
       weaknesses.push({
-        title: 'Foundation Building',
-        description: 'Establishing core knowledge is your first milestone',
+        title: 'Construção de Fundação',
+        description: 'Estabelecer conhecimento básico é seu primeiro marco',
         score: 30,
       });
     }
     if (weaknesses.length < 3) {
       weaknesses.push({
-        title: 'Application Practice',
-        description: 'Bridging theory and practical implementation',
+        title: 'Prática Aplicada',
+        description: 'Conectar teoria e implementação prática',
         score: 50,
       });
     }
 
     baseResults.push({
-      category: 'Areas for Development',
+      category: 'Áreas para Desenvolvimento',
       icon: AlertTriangle,
       items: weaknesses.slice(0, 3),
     });
@@ -115,61 +115,37 @@ export default function DiagnosisPage() {
     const gaps = [];
     if (goals.includes('ai') && skillLevel !== 'advanced') {
       gaps.push({
-        title: 'Mathematical Foundations',
-        description: 'Linear algebra and statistics for AI comprehension',
+        title: 'Fundações Matemáticas',
+        description: 'Álgebra linear e estatística para compreensão de IA',
         score: 25,
       });
     }
     if (goals.includes('data') && skillLevel !== 'advanced') {
       gaps.push({
-        title: 'Analytical Tools',
-        description: 'SQL, Python, and visualization mastery needed',
+        title: 'Ferramentas Analíticas',
+        description: 'SQL, Python e domínio de visualização necessários',
         score: 35,
       });
     }
     if (goals.includes('programming')) {
       gaps.push({
-        title: 'Algorithmic Thinking',
-        description: 'Problem-solving patterns and logic structures',
+        title: 'Pensamento Algorítmico',
+        description: 'Padrões de resolução e estruturas de dados',
         score: 40,
       });
     }
     if (gaps.length < 3) {
       gaps.push({
-        title: 'System Architecture',
-        description: 'Design principles and scalability concepts',
+        title: 'Arquitetura de Sistemas',
+        description: 'Princípios de design e escalabilidade',
         score: 30,
       });
     }
 
     baseResults.push({
-      category: 'Knowledge Gaps',
+      category: 'Lacunas de Conhecimento',
       icon: Target,
       items: gaps.slice(0, 3),
-    });
-
-    const recommendations = [
-      {
-        title: 'Tailored Curriculum',
-        description: `Optimized for ${userData?.timePerDay || '30min'} daily sessions`,
-        score: 95,
-      },
-      {
-        title: 'Structured Progression',
-        description: 'Bite-sized lessons for deep comprehension',
-        score: 88,
-      },
-      {
-        title: 'Adaptive Difficulty',
-        description: 'Challenge scaling for your growth trajectory',
-        score: 92,
-      },
-    ];
-
-    baseResults.push({
-      category: 'NIX Recommendations',
-      icon: Brain,
-      items: recommendations,
     });
 
     return baseResults;
@@ -179,22 +155,22 @@ export default function DiagnosisPage() {
     return (
       <div className="min-h-screen bg-nexo-bg flex items-center justify-center">
         <div className="text-center max-w-md">
-          <NIXMascot size="lg" className="mx-auto mb-8" />
+          <NIXMascot size="lg" variant="badge" className="mx-auto mb-8" />
           <motion.div
-            className="serif-heading text-2xl mb-6"
+            className="serif-heading text-2xl mb-6 text-nexo-text"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >
-            Analyzing Your Profile
+            Analisando Seu Perfil
           </motion.div>
           <p className="text-nexo-text-secondary mb-8 text-sm">
-            NIX is crafting your personalized learning pathway
+            NIX está construindo seu caminho de aprendizado personalizado
           </p>
           <div className="flex items-center justify-center gap-2">
             {[0, 1, 2].map((i) => (
               <motion.div
                 key={i}
-                className="w-2 h-2 bg-nexo-gold rounded-full"
+                className="w-2 h-2 bg-nexo-red rounded-full"
                 animate={{ opacity: [0.3, 1, 0.3] }}
                 transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.2 }}
               />
@@ -207,11 +183,6 @@ export default function DiagnosisPage() {
 
   return (
     <div className="min-h-screen bg-nexo-bg relative overflow-hidden">
-      {/* Subtle background */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-nexo-navy/20 rounded-full blur-3xl" />
-      </div>
-
       <div className="relative min-h-screen flex flex-col px-6 py-16">
         <div className="max-w-5xl mx-auto w-full">
           {/* Header */}
@@ -221,24 +192,24 @@ export default function DiagnosisPage() {
             animate={{ opacity: 1, y: 0 }}
           >
             <div className="flex items-center justify-center mb-4">
-              <NIXMascot size="md" />
+              <NIXMascot size="md" variant="badge" />
             </div>
 
             <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-nexo-gold/10 border border-nexo-gold/20 mb-4"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded bg-nexo-red/10 border border-nexo-red/20 mb-4"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ type: 'spring' }}
             >
-              <Check className="w-4 h-4 text-nexo-gold" />
-              <span className="text-sm text-nexo-gold">Analysis Complete</span>
+              <Check className="w-4 h-4 text-nexo-red" />
+              <span className="text-sm text-nexo-red font-medium">Análise Concluída</span>
             </motion.div>
 
-            <h1 className="serif-heading text-3xl md:text-4xl mb-3">
-              Your Intellectual <span className="text-nexo-gold">Profile</span>
+            <h1 className="serif-heading text-3xl md:text-4xl mb-3 text-nexo-text">
+              Seu Perfil <span className="text-nexo-red">Intelectual</span>
             </h1>
             <p className="text-nexo-text-secondary max-w-xl mx-auto">
-              NIX has assessed your knowledge, patterns, and potential for excellence
+              NIX avaliou seu conhecimento, padrões e potencial para excelência
             </p>
           </motion.div>
 
@@ -256,18 +227,16 @@ export default function DiagnosisPage() {
                   const ResultIcon = result.icon;
                   return (
                     <div className="flex items-center gap-3 mb-5">
-                      <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                        result.category === 'Proficiencies'
+                      <div className={`w-10 h-10 rounded flex items-center justify-center ${
+                        result.category === 'Competências'
                           ? 'bg-nexo-success/10 text-nexo-success'
-                          : result.category === 'Areas for Development'
+                          : result.category === 'Áreas para Desenvolvimento'
                           ? 'bg-nexo-warning/10 text-nexo-warning'
-                          : result.category === 'Knowledge Gaps'
-                          ? 'bg-nexo-error/10 text-nexo-error'
-                          : 'bg-nexo-gold/10 text-nexo-gold'
+                          : 'bg-nexo-error/10 text-nexo-error'
                       }`}>
                         <ResultIcon className="w-5 h-5" />
                       </div>
-                      <h2 className="serif-heading text-lg">{result.category}</h2>
+                      <h2 className="serif-heading text-lg text-nexo-text">{result.category}</h2>
                     </div>
                   );
                 })()}
@@ -281,18 +250,18 @@ export default function DiagnosisPage() {
                       transition={{ delay: 0.3 + idx * 0.1 }}
                     >
                       <div className="flex items-center justify-between mb-1.5">
-                        <span className="text-sm font-medium">{item.title}</span>
-                        <span className="text-xs text-nexo-text-muted">{item.score}%</span>
+                        <span className="text-sm font-medium text-nexo-text">{item.title}</span>
+                        <span className="text-xs text-nexo-text-secondary">{item.score}%</span>
                       </div>
-                      <div className="h-1.5 bg-nexo-bg-tertiary rounded-full overflow-hidden">
+                      <div className="h-2 bg-nexo-cream-dark rounded-full overflow-hidden">
                         <motion.div
-                          className="h-full rounded-full bg-nexo-gold"
+                          className="h-full rounded-full bg-nexo-red"
                           initial={{ width: 0 }}
                           animate={{ width: `${item.score}%` }}
                           transition={{ duration: 0.8, delay: 0.4 + idx * 0.1 }}
                         />
                       </div>
-                      <p className="text-xs text-nexo-text-muted mt-1">{item.description}</p>
+                      <p className="text-xs text-nexo-text-secondary mt-1">{item.description}</p>
                     </motion.div>
                   ))}
                 </div>
@@ -302,7 +271,7 @@ export default function DiagnosisPage() {
 
           {/* Overall Assessment */}
           <motion.div
-            className="card mb-12"
+            className="academic-frame mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
@@ -315,7 +284,7 @@ export default function DiagnosisPage() {
                       cx="56"
                       cy="56"
                       r="50"
-                      stroke="#1A2334"
+                      stroke="#E8D4C4"
                       strokeWidth="6"
                       fill="none"
                     />
@@ -323,7 +292,7 @@ export default function DiagnosisPage() {
                       cx="56"
                       cy="56"
                       r="50"
-                      stroke="#C9A962"
+                      stroke="#B61F1F"
                       strokeWidth="6"
                       fill="none"
                       strokeLinecap="round"
@@ -335,27 +304,26 @@ export default function DiagnosisPage() {
                   </svg>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center">
-                      <div className="text-2xl font-semibold serif-heading text-nexo-gold">77%</div>
-                      <div className="text-[10px] text-nexo-text-muted uppercase tracking-wider">Potential</div>
+                      <div className="text-2xl font-bold serif-heading text-nexo-red">77%</div>
+                      <div className="text-[10px] text-nexo-text-secondary uppercase tracking-wider">Potencial</div>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div className="flex-1 text-center md:text-left">
-                <h3 className="serif-heading text-xl mb-2">High Intellectual Potential</h3>
+                <h3 className="serif-heading text-xl mb-2 text-nexo-text">Alto Potencial Intelectual</h3>
                 <p className="text-nexo-text-secondary text-sm mb-4">
-                  Based on your profile, NIX has identified an optimal path for your intellectual growth.
-                  With personalized guidance, you are positioned for significant achievement.
+                  Baseado em seu perfil, NIX identificou um caminho ótimo para seu crescimento intelectual. Com orientação personalizada, você está posicionado para conquistas significativas.
                 </p>
                 <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                   <div className="flex items-center gap-2">
                     <TrendingUp className="w-4 h-4 text-nexo-success" />
-                    <span className="text-xs text-nexo-text-muted">Growth trajectory favorable</span>
+                    <span className="text-xs text-nexo-text-secondary">Trajetória favorável</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Award className="w-4 h-4 text-nexo-gold" />
-                    <span className="text-xs text-nexo-text-muted">Excellence attainable</span>
+                    <Award className="w-4 h-4 text-nexo-red" />
+                    <span className="text-xs text-nexo-text-secondary">Excelência alcançável</span>
                   </div>
                 </div>
               </div>
@@ -375,7 +343,7 @@ export default function DiagnosisPage() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              Begin Your Journey
+              Começar Sua Jornada
               <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
             </motion.button>
           </motion.div>

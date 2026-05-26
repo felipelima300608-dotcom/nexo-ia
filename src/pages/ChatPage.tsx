@@ -26,13 +26,13 @@ export default function ChatPage() {
     {
       id: '1',
       role: 'assistant',
-      content: "Greetings, Scholar. I am NIX, your mentor in this journey of intellectual growth. I am here to illuminate concepts, create assessments, guide your studies, and help you achieve mastery. What shall we explore today?",
+      content: "Saudações, Estudante. Sou NIX, seu mentor nesta jornada de crescimento intelectual. Estou aqui para iluminar conceitos, criar avaliações, orientar seus estudos e ajudá-lo a alcançar excelência. O que vamos explorar hoje?",
       timestamp: new Date(),
       actions: [
-        { label: 'Explain concept', icon: Lightbulb, action: () => {} },
-        { label: 'Create assessment', icon: BookOpen, action: () => {} },
-        { label: 'Summarize topic', icon: FileText, action: () => {} },
-        { label: 'Study guidance', icon: Brain, action: () => {} },
+        { label: 'Explicar conceito', icon: Lightbulb, action: () => {} },
+        { label: 'Criar avaliação', icon: BookOpen, action: () => {} },
+        { label: 'Resumir tópico', icon: FileText, action: () => {} },
+        { label: 'Orientação de estudo', icon: Brain, action: () => {} },
       ],
     },
   ]);
@@ -49,10 +49,10 @@ export default function ChatPage() {
   }, [messages]);
 
   const suggestions = [
-    "Explain machine learning foundations",
-    "Create a quiz on Python syntax",
-    "Summarize data structures concepts",
-    "Guide me through neural networks",
+    "Explicar fundações de aprendizado de máquina",
+    "Criar um quiz sobre sintaxe de Python",
+    "Resumir conceitos de estruturas de dados",
+    "Orientar-me através de redes neurais",
   ];
 
   const handleSendMessage = async (text?: string) => {
@@ -72,10 +72,10 @@ export default function ChatPage() {
 
     setTimeout(() => {
       const responses: { [key: string]: string } = {
-        'explain': "Let me illuminate this concept for you.\n\n**Core Principles:**\n1. The fundamental premise rests on understanding relationships\n2. These concepts interconnect through logical frameworks\n3. Practical application deepens comprehension\n\nShall I elaborate on any principle, or would you prefer a practical example?",
-        'quiz': "Here is a brief assessment to gauge your understanding:\n\n**Question:**\nWhat is the primary purpose of this methodology?\n\nA) First approach\nB) Second approach\nC) Third approach\nD) Fourth approach\n\nTake your time to consider. I will reveal the answer when you are prepared.",
-        'summarize': "Here is a concise overview:\n\n**Central Thesis:** The core concept centers on understanding the relationship between elements.\n\n**Key Points:**\n- First principle and its implications\n- Second principle and applications\n- Third principle and outcomes\n\n**Application:** This knowledge enables practical problem-solving.\n\nWould you like to explore any element further?",
-        'default': "An excellent inquiry. Let me guide you through this concept.\n\nBased on your learning profile, I recommend focusing on these aspects:\n\n1. **Foundation:** Begin with the core principles\n2. **Application:** Witness how theory manifests in practice\n3. **Mastery:** Solidify through deliberate practice\n\nShall we proceed with detailed exploration, or would you prefer practical exercises?",
+        'explain': "Deixe-me iluminar este conceito para você.\n\n**Princípios Fundamentais:**\n1. A premissa fundamental repousa na compreensão de relações\n2. Estes conceitos interconectam-se através de estruturas lógicas\n3. A aplicação prática aprofunda a compreensão\n\nDevo elaborar sobre algum princípio, ou prefere um exemplo prático?",
+        'quiz': "Aqui está uma breve avaliação para medir sua compreensão:\n\n**Pergunta:**\nQual é o propósito principal desta metodologia?\n\nA) Primeira abordagem\nB) Segunda abordagem\nC) Terceira abordagem\nD) Quarta abordagem\n\nTome seu tempo para considerar. Revelarei a resposta quando estiver preparado.",
+        'summarize': "Aqui está uma visão geral concisa:\n\n**Tese Central:** O conceito central concentra-se na compreensão da relação entre elementos.\n\n**Pontos-chave:**\n- Primeiro princípio e suas implicações\n- Segundo princípio e aplicações\n- Terceiro princípio e resultados\n\n**Aplicação:** Este conhecimento viabiliza resolução prática de problemas.\n\nGostaria de explorar algum elemento adicionalmente?",
+        'default': "Uma inquietação excelente. Deixe-me orientá-lo através deste conceito.\n\nBaseado em seu perfil de aprendizado, recomendo foco nestos aspectos:\n\n1. **Fundação:** Comece com os princípios fundamentais\n2. **Aplicação:** Observe como a teoria se manifesta na prática\n3. **Domínio:** Solidifique através de prática deliberada\n\nVamos proceder com exploração detalhada, ou prefere exercícios práticos?",
       };
 
       let responseKey = 'default';
@@ -101,7 +101,7 @@ export default function ChatPage() {
     return parts.map((part, index) => {
       if (part.startsWith('**') && part.endsWith('**')) {
         return (
-          <strong key={index} className="font-semibold text-nexo-gold">
+          <strong key={index} className="font-semibold text-nexo-red">
             {part.slice(2, -2)}
           </strong>
         );
@@ -113,25 +113,25 @@ export default function ChatPage() {
   return (
     <div className="min-h-screen bg-nexo-bg flex">
       {/* Left Panel - NIX */}
-      <div className="hidden lg:flex w-72 bg-nexo-bg-secondary border-r border-nexo-border flex-col items-center justify-center relative overflow-hidden">
+      <div className="hidden lg:flex w-72 bg-nexo-cream-light border-r border-nexo-divider flex-col items-center justify-center relative overflow-hidden">
         <div className="relative z-10 text-center px-6">
           <NIXMascot size="lg" className="mx-auto mb-6" />
 
-          <h2 className="serif-heading text-2xl mb-1 text-nexo-gold">NIX</h2>
-          <p className="text-xs text-nexo-text-muted uppercase tracking-widest mb-6">Your Mentor</p>
+          <h2 className="serif-heading text-2xl mb-1 text-nexo-red">NIX</h2>
+          <p className="text-xs text-nexo-text-secondary uppercase tracking-widest mb-6">Seu Mentor</p>
 
           <div className="space-y-3 text-left max-w-xs">
             <div className="flex items-center gap-3 text-sm">
-              <Brain className="w-4 h-4 text-nexo-gold" />
-              <span className="text-nexo-text-secondary">Illuminates concepts</span>
+              <Brain className="w-4 h-4 text-nexo-red" />
+              <span className="text-nexo-text-secondary">Ilumina conceitos</span>
             </div>
             <div className="flex items-center gap-3 text-sm">
-              <BookOpen className="w-4 h-4 text-nexo-gold" />
-              <span className="text-nexo-text-secondary">Creates assessments</span>
+              <BookOpen className="w-4 h-4 text-nexo-red" />
+              <span className="text-nexo-text-secondary">Cria avaliações</span>
             </div>
             <div className="flex items-center gap-3 text-sm">
-              <FileText className="w-4 h-4 text-nexo-gold" />
-              <span className="text-nexo-text-secondary">Synthesizes knowledge</span>
+              <FileText className="w-4 h-4 text-nexo-red" />
+              <span className="text-nexo-text-secondary">Sintetiza conhecimento</span>
             </div>
           </div>
         </div>
@@ -141,24 +141,24 @@ export default function ChatPage() {
       <div className="flex-1 flex flex-col h-screen">
         {/* Header */}
         <motion.div
-          className="bg-nexo-bg-secondary border-b border-nexo-border px-6 py-3 flex items-center justify-between"
+          className="bg-nexo-cream-light border-b border-nexo-divider px-6 py-3 flex items-center justify-between"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
         >
           <div className="flex items-center gap-3">
             <button
               onClick={() => navigate('/dashboard')}
-              className="p-2 rounded-lg hover:bg-nexo-bg-card transition-colors"
+              className="p-2 rounded-lg hover:bg-nexo-divider transition-colors"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <div className="flex items-center gap-2">
               <NIXMascot size="sm" />
               <div>
-                <h1 className="font-medium">NIX</h1>
+                <h1 className="font-medium serif-heading text-nexo-red">NIX</h1>
                 <div className="flex items-center gap-1.5">
-                  <div className="w-1.5 h-1.5 rounded-full bg-nexo-success" />
-                  <span className="text-[10px] text-nexo-text-muted">Ready to guide</span>
+                  <div className="w-1.5 h-1.5 rounded-full bg-nexo-red" />
+                  <span className="text-[10px] text-nexo-text-secondary">Pronto para orientar</span>
                 </div>
               </div>
             </div>
@@ -185,29 +185,29 @@ export default function ChatPage() {
                   )}
 
                   <div
-                    className={`max-w-lg ${
+                    className={`max-w-lg rounded-xl p-4 ${
                       message.role === 'user'
-                        ? 'bg-nexo-secondary text-nexo-text'
-                        : 'bg-nexo-bg-card border border-nexo-border'
-                    } rounded-xl p-4`}
+                        ? 'bg-nexo-red text-nexo-cream'
+                        : 'bg-nexo-cream-light border border-nexo-divider'
+                    }`}
                   >
                     <div className="whitespace-pre-wrap text-sm leading-relaxed">
                       {formatMessage(message.content)}
                     </div>
 
                     {message.actions && (
-                      <div className="flex flex-wrap gap-2 mt-4 pt-3 border-t border-nexo-border">
+                      <div className="flex flex-wrap gap-2 mt-4 pt-3 border-t border-nexo-divider">
                         {message.actions.map((action) => {
                           const ActionIcon = action.icon;
                           return (
                             <motion.button
                               key={action.label}
                               onClick={action.action}
-                              className="px-3 py-1.5 rounded-lg bg-nexo-bg-tertiary hover:bg-nexo-bg-card transition-all flex items-center gap-2 text-xs"
+                              className="px-3 py-1.5 rounded-lg bg-nexo-divider hover:bg-nexo-beige transition-all flex items-center gap-2 text-xs"
                               whileHover={{ scale: 1.02 }}
                               whileTap={{ scale: 0.98 }}
                             >
-                              <ActionIcon className="w-3.5 h-3.5 text-nexo-gold" />
+                              <ActionIcon className="w-3.5 h-3.5 text-nexo-red" />
                               {action.label}
                             </motion.button>
                           );
@@ -217,8 +217,8 @@ export default function ChatPage() {
                   </div>
 
                   {message.role === 'user' && (
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-nexo-secondary/30 flex items-center justify-center">
-                      <span className="text-xs font-medium text-nexo-text">S</span>
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-nexo-red/10 flex items-center justify-center">
+                      <span className="text-xs font-medium text-nexo-red">E</span>
                     </div>
                   )}
                 </motion.div>
@@ -232,12 +232,12 @@ export default function ChatPage() {
                 animate={{ opacity: 1, y: 0 }}
               >
                 <NIXMascot size="sm" />
-                <div className="bg-nexo-bg-card border border-nexo-border rounded-xl p-4">
+                <div className="bg-nexo-cream-light border border-nexo-divider rounded-xl p-4">
                   <div className="flex gap-1.5">
                     {[0, 1, 2].map((i) => (
                       <motion.div
                         key={i}
-                        className="w-1.5 h-1.5 bg-nexo-gold rounded-full"
+                        className="w-1.5 h-1.5 bg-nexo-red rounded-full"
                         animate={{ opacity: [0.3, 1, 0.3] }}
                         transition={{ duration: 1, repeat: Infinity, delay: i * 0.15 }}
                       />
@@ -260,13 +260,13 @@ export default function ChatPage() {
             transition={{ delay: 0.4 }}
           >
             <div className="max-w-2xl mx-auto">
-              <p className="text-xs text-nexo-text-muted mb-2">Suggested inquiries:</p>
+              <p className="text-xs text-nexo-text-secondary mb-2">Perguntas sugeridas:</p>
               <div className="flex flex-wrap gap-2">
                 {suggestions.map((suggestion) => (
                   <motion.button
                     key={suggestion}
                     onClick={() => handleSendMessage(suggestion)}
-                    className="px-3 py-1.5 rounded-lg bg-nexo-bg-card hover:bg-nexo-bg-card/80 border border-nexo-border transition-all text-xs text-nexo-text-secondary hover:text-nexo-text"
+                    className="px-3 py-1.5 rounded-lg bg-nexo-cream-light hover:bg-nexo-divider border border-nexo-divider transition-all text-xs text-nexo-text-secondary hover:text-nexo-text"
                     whileHover={{ scale: 1.02 }}
                   >
                     {suggestion}
@@ -284,7 +284,7 @@ export default function ChatPage() {
           animate={{ opacity: 1, y: 0 }}
         >
           <div className="max-w-2xl mx-auto">
-            <div className="bg-nexo-bg-card border border-nexo-border rounded-xl p-1.5">
+            <div className="bg-nexo-cream-light border border-nexo-divider rounded-xl p-1.5">
               <div className="flex items-end gap-2">
                 <textarea
                   value={inputValue}
@@ -295,8 +295,8 @@ export default function ChatPage() {
                       handleSendMessage();
                     }
                   }}
-                  placeholder="Ask NIX anything..."
-                  className="flex-1 bg-transparent border-none outline-none resize-none px-4 py-2.5 text-sm placeholder:text-nexo-text-muted"
+                  placeholder="Pergunte ao NIX..."
+                  className="flex-1 bg-transparent border-none outline-none resize-none px-4 py-2.5 text-sm placeholder:text-nexo-text-secondary"
                   rows={1}
                   style={{ minHeight: '40px', maxHeight: '100px' }}
                 />
@@ -305,8 +305,8 @@ export default function ChatPage() {
                   disabled={!inputValue.trim() || isTyping}
                   className={`p-2.5 rounded-lg transition-all ${
                     inputValue.trim() && !isTyping
-                      ? 'bg-nexo-gold text-nexo-bg'
-                      : 'bg-nexo-bg-tertiary text-nexo-text-muted cursor-not-allowed'
+                      ? 'bg-nexo-red text-nexo-cream'
+                      : 'bg-nexo-divider text-nexo-text-secondary cursor-not-allowed'
                   }`}
                   whileHover={inputValue.trim() && !isTyping ? { scale: 1.05 } : {}}
                   whileTap={inputValue.trim() && !isTyping ? { scale: 0.95 } : {}}
@@ -316,8 +316,8 @@ export default function ChatPage() {
               </div>
             </div>
 
-            <p className="text-[10px] text-center text-nexo-text-muted mt-3">
-              NIX can explain concepts, create assessments, summarize topics, and guide your studies
+            <p className="text-[10px] text-center text-nexo-text-secondary mt-3">
+              NIX pode explicar conceitos, criar avaliações, resumir tópicos e orientar seus estudos
             </p>
           </div>
         </motion.div>

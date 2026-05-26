@@ -31,106 +31,106 @@ interface Step {
 const steps: Step[] = [
   {
     id: 1,
-    title: 'What knowledge do you seek?',
-    subtitle: 'Select disciplines you wish to master',
+    title: 'Que conhecimento você busca?',
+    subtitle: 'Selecione as disciplinas que deseja dominar',
     icon: Target,
     field: 'goals',
     multiSelect: true,
     options: [
-      { value: 'programming', label: 'Programming & Engineering' },
-      { value: 'data', label: 'Data Science & Analytics' },
-      { value: 'ai', label: 'Artificial Intelligence' },
-      { value: 'design', label: 'Design & Architecture' },
-      { value: 'business', label: 'Business & Strategy' },
-      { value: 'languages', label: 'Languages & Literature' },
-      { value: 'sciences', label: 'Natural Sciences' },
-      { value: 'mathematics', label: 'Mathematics & Logic' },
+      { value: 'programming', label: 'Programação e Engenharia' },
+      { value: 'data', label: 'Ciência de Dados e Análise' },
+      { value: 'ai', label: 'Inteligência Artificial' },
+      { value: 'design', label: 'Design e Arquitetura' },
+      { value: 'business', label: 'Negócios e Estratégia' },
+      { value: 'languages', label: 'Idiomas e Literatura' },
+      { value: 'sciences', label: 'Ciências Naturais' },
+      { value: 'mathematics', label: 'Matemática e Lógica' },
     ],
   },
   {
     id: 2,
-    title: 'What is your field of endeavor?',
-    subtitle: 'This shapes your personalized curriculum',
+    title: 'Qual é sua área de atuação?',
+    subtitle: 'Isso moldará seu currículo personalizado',
     icon: Briefcase,
     field: 'professionalArea',
     options: [
-      { value: 'technology', label: 'Technology & Engineering' },
-      { value: 'finance', label: 'Finance & Economics' },
-      { value: 'healthcare', label: 'Healthcare & Sciences' },
-      { value: 'education', label: 'Education & Academia' },
-      { value: 'consulting', label: 'Consulting & Strategy' },
-      { value: 'entrepreneur', label: 'Entrepreneurship' },
-      { value: 'arts', label: 'Arts & Humanities' },
-      { value: 'student', label: 'Academic Pursuit' },
+      { value: 'technology', label: 'Tecnologia e Engenharia' },
+      { value: 'finance', label: 'Finanças e Economia' },
+      { value: 'healthcare', label: 'Saúde e Ciências' },
+      { value: 'education', label: 'Educação e Academia' },
+      { value: 'consulting', label: 'Consultoria e Estratégia' },
+      { value: 'entrepreneur', label: 'Empreendedorismo' },
+      { value: 'arts', label: 'Artes e Humanidades' },
+      { value: 'student', label: 'Busca Acadêmica' },
     ],
   },
   {
     id: 3,
-    title: 'What is your current proficiency?',
-    subtitle: 'Honest assessment leads to better guidance',
+    title: 'Qual é seu nível de proficiência?',
+    subtitle: 'Avaliação honesta leva a melhor orientação',
     icon: TrendingUp,
     field: 'skillLevel',
     options: [
-      { value: 'beginner', label: 'Novice', icon: Target },
-      { value: 'intermediate', label: 'Practitioner', icon: TrendingUp },
-      { value: 'advanced', label: 'Expert', icon: Rocket },
+      { value: 'beginner', label: 'Iniciante', icon: Target },
+      { value: 'intermediate', label: 'Intermediário', icon: TrendingUp },
+      { value: 'advanced', label: 'Avançado', icon: Rocket },
     ],
   },
   {
     id: 4,
-    title: 'How much time can you dedicate?',
-    subtitle: 'We will optimize your curriculum accordingly',
+    title: 'Quanto tempo pode dedicar diariamente?',
+    subtitle: 'Otimizaremos seu currículo de acordo',
     icon: Clock,
     field: 'timePerDay',
     options: [
-      { value: '15min', label: '15 minutes daily' },
-      { value: '30min', label: '30 minutes daily' },
-      { value: '1hour', label: '1 hour daily' },
-      { value: '2hours', label: '2+ hours daily' },
+      { value: '15min', label: '15 minutos por dia' },
+      { value: '30min', label: '30 minutos por dia' },
+      { value: '1hour', label: '1 hora por dia' },
+      { value: '2hours', label: '2+ horas por dia' },
     ],
   },
   {
     id: 5,
-    title: 'How do you learn most effectively?',
-    subtitle: 'Understanding your style enhances retention',
+    title: 'Como você aprende mais efetivamente?',
+    subtitle: 'Entender seu estilo melhora a retenção',
     icon: BookOpen,
     field: 'learningStyle',
     options: [
-      { value: 'visual', label: 'Visual & Diagrammatic' },
-      { value: 'reading', label: 'Reading & Textual' },
-      { value: 'hands-on', label: 'Practical Application' },
-      { value: 'discussion', label: 'Discourse & Dialogue' },
+      { value: 'visual', label: 'Visual e Diagramática' },
+      { value: 'reading', label: 'Leitura e Textual' },
+      { value: 'hands-on', label: 'Prática Aplicada' },
+      { value: 'discussion', label: 'Discussão e Diálogo' },
     ],
   },
   {
     id: 6,
-    title: 'What challenges your progress?',
-    subtitle: 'Select all that apply',
+    title: 'O que desafia seu progresso?',
+    subtitle: 'Selecione todos os que se aplicam',
     icon: AlertCircle,
     field: 'difficulties',
     multiSelect: true,
     options: [
-      { value: 'time', label: 'Limited Time Available' },
-      { value: 'motivation', label: 'Sustaining Motivation' },
-      { value: 'focus', label: 'Maintaining Focus' },
-      { value: 'resources', label: 'Finding Quality Resources' },
-      { value: 'structure', label: 'Lack of Structure' },
-      { value: 'practice', label: 'Practice Opportunities' },
+      { value: 'time', label: 'Tempo Limitado Disponível' },
+      { value: 'motivation', label: 'Manter a Motivação' },
+      { value: 'focus', label: 'Manter o Foco' },
+      { value: 'resources', label: 'Encontrar Bons Recursos' },
+      { value: 'structure', label: 'Falta de Estrutura' },
+      { value: 'practice', label: 'Oportunidades de Prática' },
     ],
   },
   {
     id: 7,
-    title: 'What is your ultimate objective?',
-    subtitle: 'Define your destination',
+    title: 'Qual é seu objetivo final?',
+    subtitle: 'Defina seu destino',
     icon: Rocket,
     field: 'mainObjective',
     options: [
-      { value: 'career', label: 'Career Advancement' },
-      { value: 'pivot', label: 'Career Transition' },
-      { value: 'skills', label: 'Skill Development' },
-      { value: 'knowledge', label: 'Pursuit of Knowledge' },
-      { value: 'degree', label: 'Academic Credentials' },
-      { value: 'business', label: 'Entrepreneurial Goals' },
+      { value: 'career', label: 'Avanço na Carreira' },
+      { value: 'pivot', label: 'Transição de Carreira' },
+      { value: 'skills', label: 'Desenvolvimento de Habilidades' },
+      { value: 'knowledge', label: 'Busca do Conhecimento' },
+      { value: 'degree', label: 'Credenciais Acadêmicas' },
+      { value: 'business', label: 'Objetivos Empresariais' },
     ],
   },
 ];
@@ -193,7 +193,7 @@ export default function OnboardingPage() {
 
     setTimeout(() => {
       const userData: UserData = {
-        name: 'Scholar',
+        name: 'Estudante',
         goals: (formData.goals as string[]) || [],
         professionalArea: formData.professionalArea || '',
         skillLevel: formData.skillLevel || '',
@@ -219,16 +219,18 @@ export default function OnboardingPage() {
   return (
     <div className="min-h-screen bg-nexo-bg relative overflow-hidden">
       {/* Subtle background */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-1/3 right-1/3 w-[500px] h-[500px] bg-nexo-navy/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/3 left-1/4 w-[400px] h-[400px] bg-nexo-gold/5 rounded-full blur-3xl" />
+      <div className="fixed inset-0 pointer-events-none opacity-3">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'repeating-linear-gradient(90deg, #B61F1F, #B61F1F 1px, transparent 1px, transparent 20px)',
+          backgroundSize: '20px 20px'
+        }} />
       </div>
 
       <div className="relative min-h-screen flex flex-col">
         {/* Progress bar */}
-        <div className="fixed top-0 left-0 right-0 z-50 h-0.5 bg-nexo-border">
+        <div className="fixed top-0 left-0 right-0 z-50 h-1 bg-nexo-divider">
           <motion.div
-            className="h-full bg-nexo-gold"
+            className="h-full bg-nexo-red"
             initial={{ width: 0 }}
             animate={{ width: `${progress}%` }}
             transition={{ duration: 0.4 }}
@@ -236,11 +238,11 @@ export default function OnboardingPage() {
         </div>
 
         {/* Header */}
-        <div className="fixed top-4 right-8 z-40 flex items-center gap-3">
-          <NIXMascot size="sm" />
+        <div className="fixed top-4 right-8 z-40 flex items-center gap-2">
+          <NIXMascot size="sm" variant="simple" />
           <div className="text-right">
-            <p className="text-xs text-nexo-gold font-medium">Your Mentor</p>
-            <p className="text-[10px] text-nexo-text-muted">NIX</p>
+            <p className="text-xs text-nexo-red font-semibold">Seu Mentor</p>
+            <p className="text-[10px] text-nexo-text-secondary">NIX</p>
           </div>
         </div>
 
@@ -258,21 +260,21 @@ export default function OnboardingPage() {
                 {/* Step indicator */}
                 <div className="text-center mb-10">
                   <motion.div
-                    className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-nexo-gold/10 border border-nexo-gold/30 mb-5"
+                    className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-nexo-red/10 border-2 border-nexo-red/30 mb-5"
                     initial={{ scale: 0.9 }}
                     animate={{ scale: 1 }}
                     transition={{ type: 'spring' }}
                   >
                     {(() => {
                       const IconComponent = steps[currentStep].icon;
-                      return <IconComponent className="w-6 h-6 text-nexo-gold" />;
+                      return <IconComponent className="w-6 h-6 text-nexo-red" />;
                     })()}
                   </motion.div>
 
-                  <p className="text-xs text-nexo-gold uppercase tracking-[0.2em] mb-3">
-                    Question {currentStep + 1} of {steps.length}
+                  <p className="text-xs text-nexo-red font-semibold uppercase tracking-widest mb-3">
+                    Pergunta {currentStep + 1} de {steps.length}
                   </p>
-                  <h1 className="serif-heading text-3xl md:text-4xl mb-3">
+                  <h1 className="serif-heading text-3xl md:text-4xl mb-3 text-nexo-text">
                     {steps[currentStep]?.title}
                   </h1>
                   <p className="text-nexo-text-secondary">
@@ -281,11 +283,7 @@ export default function OnboardingPage() {
                 </div>
 
                 {/* Options */}
-                <div className={`grid gap-3 ${
-                  steps[currentStep].options && steps[currentStep].options.length <= 4
-                    ? 'md:grid-cols-2'
-                    : 'md:grid-cols-2'
-                }`}>
+                <div className="grid gap-3 md:grid-cols-2">
                   {steps[currentStep].options?.map((option, index) => (
                     <motion.button
                       key={option.value}
@@ -296,10 +294,10 @@ export default function OnboardingPage() {
                           steps[currentStep].multiSelect
                         )
                       }
-                      className={`relative p-4 rounded-lg text-left transition-all ${
+                      className={`relative p-4 rounded text-left transition-all ${
                         isSelected(steps[currentStep].field, option.value)
-                          ? 'bg-nexo-bg-card border-nexo-gold/40 border'
-                          : 'bg-nexo-bg-tertiary hover:bg-nexo-bg-card border border-transparent'
+                          ? 'bg-nexo-red/10 border-2 border-nexo-red'
+                          : 'bg-nexo-cream-light hover:bg-nexo-cream-dark border border-nexo-divider'
                       }`}
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -312,11 +310,11 @@ export default function OnboardingPage() {
                           {option.icon && (
                             <option.icon className={`w-4 h-4 ${
                               isSelected(steps[currentStep].field, option.value)
-                                ? 'text-nexo-gold'
-                                : 'text-nexo-text-muted'
+                                ? 'text-nexo-red'
+                                : 'text-nexo-text-secondary'
                             }`} />
                           )}
-                          <span className="text-sm font-medium">{option.label}</span>
+                          <span className="text-sm font-medium text-nexo-text">{option.label}</span>
                         </div>
 
                         {isSelected(steps[currentStep].field, option.value) && (
@@ -325,7 +323,7 @@ export default function OnboardingPage() {
                             animate={{ scale: 1 }}
                             transition={{ type: 'spring' }}
                           >
-                            <Check className="w-4 h-4 text-nexo-gold" />
+                            <Check className="w-4 h-4 text-nexo-red" />
                           </motion.div>
                         )}
                       </div>
@@ -340,19 +338,19 @@ export default function OnboardingPage() {
               <motion.button
                 onClick={handleBack}
                 disabled={currentStep === 0}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all ${
+                className={`flex items-center gap-2 px-4 py-2 rounded transition-all ${
                   currentStep === 0
                     ? 'opacity-30 cursor-not-allowed'
-                    : 'hover:bg-nexo-bg-card text-nexo-text-secondary'
+                    : 'hover:bg-nexo-cream-dark text-nexo-text-secondary'
                 }`}
                 whileHover={currentStep > 0 ? { x: -3 } : {}}
               >
                 <ChevronLeft className="w-4 h-4" />
-                <span className="text-sm">Previous</span>
+                <span className="text-sm">Anterior</span>
               </motion.button>
 
               <div className="flex items-center gap-2">
-                <span className="text-sm text-nexo-text-muted">
+                <span className="text-sm text-nexo-text-secondary">
                   {currentStep + 1} / {steps.length}
                 </span>
               </div>
@@ -360,10 +358,10 @@ export default function OnboardingPage() {
               <motion.button
                 onClick={handleNext}
                 disabled={!canProceed() || isSubmitting}
-                className={`flex items-center gap-2 px-6 py-2 rounded-lg font-medium transition-all ${
+                className={`flex items-center gap-2 px-6 py-2 rounded font-medium transition-all ${
                   canProceed() && !isSubmitting
                     ? 'btn-primary'
-                    : 'bg-nexo-border text-nexo-text-muted cursor-not-allowed'
+                    : 'bg-nexo-divider text-nexo-text-muted cursor-not-allowed'
                 }`}
                 whileHover={canProceed() && !isSubmitting ? { scale: 1.02 } : {}}
                 whileTap={canProceed() && !isSubmitting ? { scale: 0.98 } : {}}
@@ -375,16 +373,16 @@ export default function OnboardingPage() {
                       animate={{ rotate: 360 }}
                       transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
                     />
-                    <span className="text-sm">Analyzing...</span>
+                    <span className="text-sm">Analisando...</span>
                   </>
                 ) : currentStep === steps.length - 1 ? (
                   <>
-                    <span className="text-sm">Complete</span>
+                    <span className="text-sm">Concluir</span>
                     <Rocket className="w-4 h-4" />
                   </>
                 ) : (
                   <>
-                    <span className="text-sm">Continue</span>
+                    <span className="text-sm">Continuar</span>
                     <ChevronRight className="w-4 h-4" />
                   </>
                 )}
