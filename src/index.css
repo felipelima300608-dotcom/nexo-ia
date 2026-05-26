@@ -8,7 +8,7 @@
   }
 
   body {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Merriweather', 'Georgia', serif;
     background-color: #FFF7F2;
     color: #2C2C2C;
     overflow-x: hidden;
@@ -33,193 +33,147 @@
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #C92A2A;
+    background: #A01818;
   }
 
-  h1, h2, h3 {
-    font-family: 'Lora', Georgia, serif;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lora', 'Georgia', serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
   }
 }
 
 @layer components {
-  .glass-card {
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(212, 196, 184, 0.4);
+  /* Content Box - Estilo principal da interface */
+  .content-box {
+    @apply rounded-lg;
+    background: #FFF7F2;
+    border: 2px solid #B61F1F;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
 
-  .text-red {
-    @apply text-nexo-red;
+  .content-box-sm {
+    @apply rounded-lg;
+    background: #FFF7F2;
+    border: 2px solid #B61F1F;
+    padding: 16px;
   }
 
-  .gradient-red-text {
-    background: linear-gradient(135deg, #B61F1F 0%, #C92A2A 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .btn-primary {
-    @apply px-6 py-3 font-semibold rounded;
+  /* Header vermelho - Caixas de título */
+  .red-header {
+    @apply px-4 py-2 rounded-t-lg font-bold text-sm uppercase tracking-wider;
     background: #B61F1F;
     color: #FFF7F2;
+    letter-spacing: 0.05em;
+  }
+
+  /* Botão estilo da interface */
+  .btn-primary {
+    @apply px-8 py-3 font-bold rounded-lg uppercase tracking-wider;
+    background: #B61F1F;
+    color: #FFF7F2;
+    border: 2px solid #B61F1F;
     transition: all 0.3s ease;
-    border: 1px solid #B61F1F;
+    font-size: 0.875rem;
   }
 
   .btn-primary:hover {
     background: #A01818;
     border-color: #A01818;
-    box-shadow: 0 4px 12px rgba(182, 31, 31, 0.2);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(182, 31, 31, 0.25);
   }
 
   .btn-secondary {
-    @apply px-6 py-3 font-semibold rounded;
+    @apply px-6 py-2 font-bold rounded-lg uppercase tracking-wider;
     background: transparent;
     color: #B61F1F;
-    border: 1.5px solid #B61F1F;
+    border: 2px solid #B61F1F;
     transition: all 0.3s ease;
+    font-size: 0.875rem;
   }
 
   .btn-secondary:hover {
-    background: rgba(182, 31, 31, 0.05);
+    background: #B61F1F;
+    color: #FFF7F2;
   }
 
   .btn-outline {
-    @apply px-6 py-3 font-semibold rounded;
-    border: 1.5px solid #B61F1F;
+    @apply px-6 py-2 font-bold rounded-lg uppercase tracking-wider;
     background: transparent;
     color: #B61F1F;
+    border: 2px solid #B61F1F;
     transition: all 0.3s ease;
   }
 
   .btn-outline:hover {
-    background: rgba(182, 31, 31, 0.05);
+    background: #B61F1F;
+    color: #FFF7F2;
   }
 
+  /* Card para grades e conteúdo */
   .card {
-    @apply rounded p-6;
+    @apply rounded-lg p-4;
     background: #FFFFFF;
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><defs><pattern id="paper" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><rect width="100" height="100" fill="%23FFFFFF"/><circle cx="20" cy="20" r="1" fill="%23B61F1F" opacity="0.02"/><circle cx="80" cy="80" r="1" fill="%23B61F1F" opacity="0.02"/></pattern></defs><rect width="100" height="100" fill="url(%23paper)"/></svg>');
-    border: 1px solid #E8D4C4;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 2px solid #B61F1F;
     transition: all 0.3s ease;
   }
 
   .card:hover {
-    border-color: #D4C4B8;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 16px rgba(182, 31, 31, 0.15);
     transform: translateY(-2px);
   }
 
   .card-elevated {
-    @apply rounded p-6;
+    @apply rounded-lg p-6;
     background: #FFFFFF;
-    border: 1px solid #D4C4B8;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-  }
-
-  .card-elevated:hover {
-    border-color: #B61F1F;
-    box-shadow: 0 8px 24px rgba(182, 31, 31, 0.12);
-    transform: translateY(-2px);
-  }
-
-  .red-border {
-    position: relative;
-  }
-
-  .red-border::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: #B61F1F;
-    border-radius: 1px;
-  }
-
-  .red-underline {
-    position: relative;
-    display: inline-block;
-  }
-
-  .red-underline::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: #B61F1F;
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-  }
-
-  .red-underline:hover::after {
-    transform: scaleX(1);
-  }
-
-  .serif-heading {
-    font-family: 'Lora', Georgia, serif;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-  }
-
-  .progress-track {
-    @apply rounded-full overflow-hidden;
-    background: #F5E8E3;
-  }
-
-  .progress-fill {
-    @apply h-full rounded-full;
-    background: #B61F1F;
-    transition: width 0.5s ease;
-  }
-
-  .section-divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(182, 31, 31, 0.15), transparent);
-  }
-
-  .academic-frame {
     border: 2px solid #B61F1F;
-    border-radius: 0;
-    padding: 24px;
-    background: #FFFFFF;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 12px rgba(182, 31, 31, 0.1);
   }
 
-  .badge-seal {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: #FFFFFF;
-    border: 3px solid #B61F1F;
-    box-shadow: 0 4px 12px rgba(182, 31, 31, 0.15);
+  /* Título de seção */
+  .section-title {
+    @apply text-2xl font-bold uppercase tracking-wider;
+    color: #B61F1F;
+    font-family: 'Lora', Georgia, serif;
+  }
+
+  /* Label/Badge */
+  .label-badge {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider;
+    background: #B61F1F;
+    color: #FFF7F2;
+  }
+
+  /* Divisor */
+  .divider-red {
+    @apply my-4;
+    border-top: 2px solid #B61F1F;
+  }
+
+  /* Stats container */
+  .stats-container {
+    @apply grid gap-3;
+  }
+
+  .stat-item {
+    @apply flex items-center justify-between px-4 py-2;
+    background: #FFF7F2;
+    border-left: 3px solid #B61F1F;
   }
 }
 
 @layer utilities {
-  .text-red-gradient {
-    background: linear-gradient(135deg, #B61F1F 0%, #C92A2A 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .text-red-primary {
+    @apply text-nexo-red font-bold;
   }
 
-  .border-subtle {
-    border-color: #E8D4C4;
+  .uppercase-tight {
+    @apply uppercase tracking-wider;
   }
 
-  .border-academic {
-    border: 2px solid #B61F1F;
+  .border-red-thick {
+    @apply border-2 border-nexo-red;
   }
 }

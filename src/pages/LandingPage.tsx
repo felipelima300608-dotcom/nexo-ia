@@ -1,347 +1,267 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import {
-  BookOpen,
-  Compass,
-  Trophy,
-  Users,
-  Award,
-  ChevronRight,
-  Star,
-} from 'lucide-react';
-import { NIXMascot } from '../components/NIXMascot';
+import { ChevronRight, BookOpen, Target, Briefcase, Brain, Zap } from 'lucide-react';
 
 export default function LandingPage() {
   const navigate = useNavigate();
 
-  const features = [
-    {
-      title: 'Caminhos Personalizados',
-      description: 'Currículos curados pela IA especificamente para sua jornada de aprendizado.',
-      icon: Compass,
-    },
-    {
-      title: 'Mentoria Inteligente',
-      description: 'NIX o guia em cada passo com sabedoria e insights personalizados.',
-      icon: BookOpen,
-    },
-    {
-      title: 'Excelência Acadêmica',
-      description: 'Conteúdo rigoroso refinado para compreensão profunda e domínio.',
-      icon: Award,
-    },
-    {
-      title: 'Conquistas Significativas',
-      description: 'Acompanhe seu crescimento através de marcos e rankings significativos.',
-      icon: Trophy,
-    },
-  ];
-
-  const stats = [
-    { value: '50.000+', label: 'Alunos' },
-    { value: '200+', label: 'Disciplinas' },
-    { value: '98%', label: 'Satisfação' },
+  const topics = [
+    { icon: Briefcase, label: 'PROGRAMAÇÃO\nE ENG.' },
+    { icon: Brain, label: 'CIÊNCIA DE\nDADOS' },
+    { icon: Zap, label: 'INTELIGÊNCIA\nARTIFICIAL' },
+    { icon: Target, label: 'DESIGN E\nARQUITETURA' },
+    { icon: BookOpen, label: 'NEGÓCIOS E\nESTRATÉGIA' },
+    { icon: Brain, label: 'IDIOMAS E\nLITERATURA' },
   ];
 
   return (
     <div className="min-h-screen bg-nexo-bg">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-nexo-bg/95 backdrop-blur-md border-b border-nexo-divider">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <div className="flex items-center gap-3">
-              <NIXMascot size="sm" variant="simple" />
-              <div>
-                <h1 className="text-lg font-bold serif-heading text-nexo-red">NEXO</h1>
-                <p className="text-[10px] text-nexo-text-secondary font-semibold">ACADEMY</p>
+      {/* Container Principal */}
+      <div className="max-w-7xl mx-auto px-6 py-12">
+        <div className="grid grid-cols-3 gap-6">
+          {/* COLUNA 1: TELA DE BOAS-VINDAS / ONBOARDING */}
+          <motion.div
+            className="content-box"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="red-header mb-6">
+              1. TELA DE BOAS-VINDAS / ONBOARDING
+            </div>
+
+            <div className="text-center mb-8">
+              <div className="flex items-center justify-center gap-1 mb-4">
+                <span className="text-nexo-red text-lg">★</span>
+                <span className="text-xs text-nexo-red font-bold uppercase tracking-widest">QUESTIONÁRIO 1 DE 7</span>
+                <span className="text-nexo-red text-lg">★</span>
               </div>
+              <h2 className="section-title text-2xl mb-3">QUE CONHECIMENTO VOCÊ BUSCA?</h2>
+              <p className="text-sm text-nexo-text-secondary">Selecione as áreas que deseja dominar</p>
             </div>
 
-            {/* Navigation Links */}
-            <div className="hidden md:flex items-center gap-8">
-              <a href="#features" className="text-sm text-nexo-text-secondary hover:text-nexo-red transition-colors">
-                Princípios
-              </a>
-              <a href="#method" className="text-sm text-nexo-text-secondary hover:text-nexo-red transition-colors">
-                Método
-              </a>
-              <a href="#excellence" className="text-sm text-nexo-text-secondary hover:text-nexo-red transition-colors">
-                Excelência
-              </a>
-            </div>
-
-            {/* CTA */}
-            <motion.button
-              onClick={() => navigate('/onboarding')}
-              className="btn-primary text-sm"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Começar Jornada
-            </motion.button>
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-24 px-6">
-        <div className="max-w-6xl mx-auto relative">
-          <div className="max-w-3xl mx-auto text-center">
-            {/* Tagline */}
-            <motion.p
-              className="text-nexo-red font-semibold text-sm mb-6 tracking-widest uppercase"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              Educação de Excelência
-            </motion.p>
-
-            {/* Main Heading */}
-            <motion.h1
-              className="serif-heading text-5xl md:text-6xl lg:text-7xl mb-6 leading-tight text-nexo-text"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              Eleve Seu <span className="text-red-gradient">Intelecto</span>
-            </motion.h1>
-
-            {/* Subtitle */}
-            <motion.p
-              className="text-lg md:text-xl text-nexo-text-secondary mb-10 max-w-2xl mx-auto leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              Um mentor guiando sua evolução. NEXO Academy combina a sabedoria do aprendizado clássico com a precisão da inteligência artificial.
-            </motion.p>
-
-            {/* CTA Buttons */}
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <motion.button
-                onClick={() => navigate('/onboarding')}
-                className="btn-primary text-base px-8 py-4 group inline-flex items-center justify-center gap-2"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Comece sua Jornada
-                <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-              </motion.button>
-              <motion.button
-                className="btn-secondary text-base px-8 py-4"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Conheça Nossa Filosofia
-              </motion.button>
-            </motion.div>
-
-            {/* Social Proof */}
-            <motion.div
-              className="mt-16 flex items-center justify-center gap-8"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <p className="text-2xl font-bold serif-heading text-nexo-red">{stat.value}</p>
-                  <p className="text-sm text-nexo-text-secondary">{stat.label}</p>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Eagle Logo */}
-          <motion.div
-            className="flex justify-center mt-20"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <img src="/Design_sem_nome_(21).png" alt="NEXO Academy" className="h-64 w-auto drop-shadow-lg" />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Divider */}
-      <div className="section-divider max-w-4xl mx-auto my-16" />
-
-      {/* Features Section */}
-      <section id="features" className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-nexo-red font-semibold text-sm mb-3 tracking-widest uppercase">
-              O Método NEXO
-            </p>
-            <h2 className="serif-heading text-3xl md:text-4xl mb-4 text-nexo-text">Filosofia de Excelência</h2>
-            <p className="text-nexo-text-secondary max-w-2xl mx-auto">
-              Onde a sabedoria ancestral encontra a inteligência moderna. Uma abordagem transformadora para aprendizado contínuo.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                className="card group"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <div className="flex items-start gap-5">
-                  <div className="w-12 h-12 rounded bg-nexo-red/10 border border-nexo-red/20 flex items-center justify-center flex-shrink-0 transition-colors group-hover:bg-nexo-red/15 group-hover:border-nexo-red/30">
-                    <feature.icon className="w-5 h-5 text-nexo-red" />
-                  </div>
-                  <div>
-                    <h3 className="serif-heading text-lg mb-2 group-hover:text-nexo-red transition-colors text-nexo-text">
-                      {feature.title}
-                    </h3>
-                    <p className="text-sm text-nexo-text-secondary leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* How it Works */}
-      <section id="method" className="py-20 px-6 bg-nexo-cream-dark/30">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-nexo-red font-semibold text-sm mb-3 tracking-widest uppercase">
-              Sua Jornada
-            </p>
-            <h2 className="serif-heading text-3xl md:text-4xl mb-4 text-nexo-text">Caminho para o Domínio</h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                step: 'I',
-                title: 'Diagnóstico',
-                description: 'NIX analisa seu conhecimento, padrões de aprendizado e objetivos intelectuais.',
-              },
-              {
-                step: 'II',
-                title: 'Currículo',
-                description: 'Um caminho de aprendizado personalizado é criado para sua jornada única.',
-              },
-              {
-                step: 'III',
-                title: 'Domínio',
-                description: 'Engaje-se profundamente, progrida significativamente, alcance excelência duradoura.',
-              },
-            ].map((item, index) => (
-              <motion.div
-                key={item.step}
-                className="relative text-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.15 }}
-              >
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-nexo-red/10 border-2 border-nexo-red/30 mb-4">
-                  <span className="serif-heading text-2xl text-nexo-red">{item.step}</span>
-                </div>
-                <h3 className="serif-heading text-xl mb-2 text-nexo-text">{item.title}</h3>
-                <p className="text-sm text-nexo-text-secondary">{item.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Excellence Section */}
-      <section id="excellence" className="py-20 px-6">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            className="academic-frame text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <div className="mb-6">
-              <img src="/Design_sem_nome_(21).png" alt="NEXO Academy" className="h-40 w-auto mx-auto mb-6" />
-            </div>
-
-            <h2 className="serif-heading text-3xl md:text-4xl mb-4 text-nexo-text">
-              Pronto para <span className="text-nexo-red">Evoluir</span>?
-            </h2>
-
-            <p className="text-nexo-text-secondary mb-8 max-w-xl mx-auto">
-              Junte-se a milhares de estudiosos que transformaram suas capacidades intelectuais através de orientação de excelência.
-            </p>
-
-            <div className="flex items-center justify-center gap-1 mb-8">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 text-nexo-red fill-nexo-red" />
-              ))}
+            <div className="grid grid-cols-2 gap-3 mb-6">
+              {topics.map((topic, idx) => {
+                const Icon = topic.icon;
+                return (
+                  <motion.button
+                    key={idx}
+                    className="content-box-sm hover:bg-nexo-red/5 transition-all"
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <div className="flex flex-col items-center gap-2">
+                      <Icon className="w-5 h-5 text-nexo-red" />
+                      <span className="text-xs font-bold uppercase text-center text-nexo-text leading-tight">
+                        {topic.label}
+                      </span>
+                    </div>
+                  </motion.button>
+                );
+              })}
             </div>
 
             <motion.button
               onClick={() => navigate('/onboarding')}
-              className="btn-primary text-base px-10 py-4 group inline-flex items-center justify-center gap-2 mb-6"
+              className="btn-primary w-full flex items-center justify-center gap-2"
               whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
             >
-              Comece sua Jornada
-              <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              CONTINUAR
+              <ChevronRight className="w-4 h-4" />
             </motion.button>
 
-            <div className="flex items-center justify-center gap-6 text-sm text-nexo-text-secondary border-t border-nexo-divider pt-6">
-              <span className="flex items-center gap-2">
-                <Users className="w-4 h-4" />
-                50.000+ estudiosos
-              </span>
-              <span className="flex items-center gap-2">
-                <Award className="w-4 h-4" />
-                Excelência certificada
-              </span>
+            {/* Indicador de página */}
+            <div className="flex justify-center gap-2 mt-6">
+              {[0, 1, 2, 3, 4].map((i) => (
+                <div
+                  key={i}
+                  className={`w-2 h-2 rounded-full transition-all ${i === 0 ? 'bg-nexo-red w-6' : 'bg-nexo-divider'}`}
+                />
+              ))}
+            </div>
+
+            {/* Citação do mascote */}
+            <div className="mt-8 bg-nexo-red/10 border-l-4 border-nexo-red px-4 py-3 rounded">
+              <p className="text-xs text-nexo-text font-medium leading-relaxed">
+                "Cada pequeno passo te leva mais alto. Confie no processo e aproveite o voo."
+              </p>
+              <p className="text-[10px] text-nexo-red font-bold mt-2">— NIX, Seu Mentor de Evolução</p>
             </div>
           </motion.div>
-        </div>
-      </section>
 
-      {/* Footer */}
-      <footer className="border-t border-nexo-divider py-12 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-3">
-              <NIXMascot size="sm" variant="simple" />
-              <div>
-                <h2 className="font-serif font-bold text-nexo-text">NEXO Academy</h2>
-                <p className="text-xs text-nexo-text-secondary">Eleve Seu Intelecto</p>
+          {/* COLUNA 2: HOME / DASHBOARD */}
+          <motion.div
+            className="content-box col-span-1"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <div className="red-header mb-4">
+              2. HOME / DASHBOARD
+            </div>
+
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-3">
+                <img src="/Design_sem_nome_(21).png" alt="NEXO" className="h-12 w-auto" />
+                <div>
+                  <h1 className="text-lg font-bold text-nexo-red">NEXO</h1>
+                  <p className="text-[10px] text-nexo-red font-bold">ACADEMY</p>
+                </div>
+              </div>
+              <div className="flex gap-2">
+                {['Início', 'Jornada', 'Missões', 'Cursos', 'NIX (IA)'].map((item, idx) => (
+                  <motion.button
+                    key={idx}
+                    className="px-3 py-1.5 text-[10px] font-bold uppercase border-2 border-nexo-red text-nexo-red rounded hover:bg-nexo-red hover:text-nexo-cream transition-all"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    {item}
+                  </motion.button>
+                ))}
               </div>
             </div>
 
-            <p className="text-sm text-nexo-text-secondary">
-              © 2024 NEXO Academy. Excelência em educação.
-            </p>
-          </div>
+            <div className="divider-red" />
+
+            <h2 className="text-2xl font-bold text-nexo-red uppercase mb-2">BOM DIA, FELIPE!</h2>
+            <p className="text-sm text-nexo-text-secondary mb-6">Pronto para mais um passo na sua evolução?</p>
+
+            {/* Sua Jornada Card */}
+            <div className="bg-nexo-red text-nexo-cream p-4 rounded-lg mb-4">
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="font-bold uppercase text-sm">SUA JORNADA</h3>
+                <div className="text-right">
+                  <div className="text-2xl font-bold">73%</div>
+                </div>
+              </div>
+              <p className="text-xs mb-3 font-semibold">NÍVEL ATUAL</p>
+              <p className="text-xs mb-3">ALUNO DEDICADO</p>
+              <div className="bg-nexo-cream/30 rounded-full h-2 overflow-hidden">
+                <div className="bg-nexo-cream h-full rounded-full w-3/4" />
+              </div>
+              <p className="text-[10px] mt-2 font-semibold">FALTAM 820 XP PARA O PRÓXIMO NÍVEL</p>
+            </div>
+
+            {/* Continue Card */}
+            <div className="bg-nexo-cream-light border-2 border-nexo-red p-4 rounded-lg mb-4">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-8 h-8 bg-nexo-red rounded flex items-center justify-center">
+                  <BookOpen className="w-4 h-4 text-nexo-cream" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm text-nexo-red uppercase">CONTINUE DE ONDE PAROU</h4>
+                  <p className="text-[10px] text-nexo-text-secondary">COPYWRITING ESTRATÉGICO</p>
+                </div>
+              </div>
+              <div className="bg-nexo-cream w-full h-1 rounded-full overflow-hidden mb-2">
+                <div className="bg-nexo-red h-full w-2/3" />
+              </div>
+              <p className="text-[10px] text-nexo-text-secondary mb-3">66%</p>
+              <button className="btn-secondary text-[10px] w-full">CONTINUAR</button>
+            </div>
+
+            {/* Seus Cursos */}
+            <h3 className="font-bold text-nexo-red uppercase text-sm mb-3">SEUS CURSOS</h3>
+            <div className="grid grid-cols-4 gap-2 mb-4">
+              {['Copywriting\nEstratégico', 'Tráfego Pago', 'Gestão de\nNegocios', 'Comunicação\ne Oratória'].map((course, idx) => (
+                <div key={idx} className="bg-nexo-red text-nexo-cream p-3 rounded text-center text-[9px] font-bold">
+                  <p className="mb-1">{course}</p>
+                  <p className="text-[8px]">120h aulas</p>
+                </div>
+              ))}
+            </div>
+
+            <button className="text-nexo-red font-bold text-sm uppercase flex items-center gap-2 w-full justify-center py-2 border-2 border-nexo-red rounded hover:bg-nexo-red hover:text-nexo-cream transition-all">
+              <span>+</span>
+              <span>EXPLORAR MAIS CURSOS</span>
+            </button>
+          </motion.div>
+
+          {/* COLUNA 3: ASSISTENTE NIX (IA) */}
+          <motion.div
+            className="content-box"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <div className="red-header mb-4">
+              3. ASSISTENTE NIX (IA)
+            </div>
+
+            <div className="text-center mb-6">
+              <div className="flex justify-center mb-4">
+                <img src="/Design_sem_nome_(22).png" alt="NIX" className="h-20 w-20 rounded-full object-cover" />
+              </div>
+              <h3 className="font-bold text-nexo-red uppercase text-sm">NIX</h3>
+              <p className="text-[10px] text-nexo-text-secondary">Seu Mentor de Evolução</p>
+            </div>
+
+            <div className="bg-nexo-cream-light border-2 border-nexo-red p-4 rounded-lg mb-4 text-center">
+              <h4 className="font-bold text-nexo-red uppercase mb-2">Olá, Felipe!</h4>
+              <p className="text-xs text-nexo-text leading-relaxed">
+                Estou aqui para guiar sua jornada e responder suas perguntas. Como posso te ajudar hoje?
+              </p>
+            </div>
+
+            <div className="space-y-2 mb-6">
+              {[
+                'EXPLICAR ESTE CONTEÚDO',
+                'CRIAR PLANO DE ESTUDOS',
+                'RECOMENDAR CURSOS',
+                'FAZER UM QUIZ',
+                'TIRAR UMA DÚVIDA',
+              ].map((action, idx) => (
+                <motion.button
+                  key={idx}
+                  className="btn-secondary text-[10px] w-full flex items-center gap-2 justify-center"
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <Zap className="w-3 h-3" />
+                  {action}
+                </motion.button>
+              ))}
+            </div>
+
+            {/* Chat Input */}
+            <div className="flex gap-2">
+              <input
+                type="text"
+                placeholder="Pergunte ao NIX..."
+                className="flex-1 px-3 py-2 border-2 border-nexo-red rounded-lg text-xs placeholder-nexo-text-secondary focus:outline-none focus:ring-2 focus:ring-nexo-red"
+              />
+              <motion.button
+                className="bg-nexo-red text-nexo-cream px-4 py-2 rounded-lg font-bold"
+                whileHover={{ scale: 1.05 }}
+              >
+                →
+              </motion.button>
+            </div>
+
+            {/* Stats */}
+            <div className="divider-red mt-6 mb-4" />
+            <h4 className="font-bold text-nexo-red uppercase text-xs mb-3">SEU DESEMPENHO</h4>
+            <div className="stats-container">
+              <div className="stat-item">
+                <span className="text-[10px] font-bold text-nexo-text-secondary">AULAS CONCLUÍDAS</span>
+                <span className="font-bold text-nexo-red">18</span>
+              </div>
+              <div className="stat-item">
+                <span className="text-[10px] font-bold text-nexo-text-secondary">HORAS DE ESTUDO</span>
+                <span className="font-bold text-nexo-red">12h 45m</span>
+              </div>
+              <div className="stat-item">
+                <span className="text-[10px] font-bold text-nexo-text-secondary">QUIZZES ACERTOS</span>
+                <span className="font-bold text-nexo-red">87%</span>
+              </div>
+              <div className="stat-item">
+                <span className="text-[10px] font-bold text-nexo-text-secondary">SEQUÊNCIA ATUAL</span>
+                <span className="font-bold text-nexo-red">7 DIAS</span>
+              </div>
+            </div>
+
+            <button className="btn-secondary text-[10px] w-full mt-4">VER RELATÓRIO COMPLETO</button>
+          </motion.div>
         </div>
-      </footer>
+      </div>
     </div>
   );
 }

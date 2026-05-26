@@ -34,9 +34,10 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Merriweather', 'Georgia', 'serif'],
         serif: ['Lora', 'Georgia', 'serif'],
         display: ['Lora', 'Georgia', 'serif'],
+        body: ['Merriweather', 'Georgia', 'serif'],
       },
       boxShadow: {
         'elegant': '0 2px 8px rgba(0, 0, 0, 0.08)',

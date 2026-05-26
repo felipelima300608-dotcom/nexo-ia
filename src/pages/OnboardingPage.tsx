@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import {
-  ChevronRight,
-  ChevronLeft,
   Target,
   Briefcase,
   TrendingUp,
@@ -12,9 +10,11 @@ import {
   AlertCircle,
   Rocket,
   Check,
-  LucideIcon,
+  ChevronRight,
+  ChevronLeft,
+  Brain,
+  Zap,
 } from 'lucide-react';
-import { NIXMascot } from '../components/NIXMascot';
 import { useUser } from '../context/UserContext';
 import type { UserData } from '../context/UserContext';
 
@@ -22,9 +22,9 @@ interface Step {
   id: number;
   title: string;
   subtitle: string;
-  icon: LucideIcon;
+  icon: React.ElementType;
   field: string;
-  options?: { value: string; label: string; icon?: LucideIcon }[];
+  options?: { value: string; label: string; icon?: React.ElementType }[];
   multiSelect?: boolean;
 }
 
@@ -32,19 +32,17 @@ const steps: Step[] = [
   {
     id: 1,
     title: 'Que conhecimento você busca?',
-    subtitle: 'Selecione as disciplinas que deseja dominar',
+    subtitle: 'Selecione as áreas que deseja dominar',
     icon: Target,
     field: 'goals',
     multiSelect: true,
     options: [
       { value: 'programming', label: 'Programação e Engenharia' },
-      { value: 'data', label: 'Ciência de Dados e Análise' },
+      { value: 'data', label: 'Ciência de Dados' },
       { value: 'ai', label: 'Inteligência Artificial' },
-      { value: 'design', label: 'Design e Arquitetura' },
-      { value: 'business', label: 'Negócios e Estratégia' },
-      { value: 'languages', label: 'Idiomas e Literatura' },
-      { value: 'sciences', label: 'Ciências Naturais' },
-      { value: 'mathematics', label: 'Matemática e Lógica' },
+      { value: 'design', label: 'Design' },
+      { value: 'business', label: 'Negócios' },
+      { value: 'languages', label: 'Idiomas' },
     ],
   },
   {
@@ -54,14 +52,12 @@ const steps: Step[] = [
     icon: Briefcase,
     field: 'professionalArea',
     options: [
-      { value: 'technology', label: 'Tecnologia e Engenharia' },
-      { value: 'finance', label: 'Finanças e Economia' },
-      { value: 'healthcare', label: 'Saúde e Ciências' },
-      { value: 'education', label: 'Educação e Academia' },
-      { value: 'consulting', label: 'Consultoria e Estratégia' },
+      { value: 'technology', label: 'Tecnologia' },
+      { value: 'finance', label: 'Finanças' },
+      { value: 'healthcare', label: 'Saúde' },
+      { value: 'education', label: 'Educação' },
       { value: 'entrepreneur', label: 'Empreendedorismo' },
-      { value: 'arts', label: 'Artes e Humanidades' },
-      { value: 'student', label: 'Busca Acadêmica' },
+      { value: 'student', label: 'Estudante' },
     ],
   },
   {
@@ -71,9 +67,9 @@ const steps: Step[] = [
     icon: TrendingUp,
     field: 'skillLevel',
     options: [
-      { value: 'beginner', label: 'Iniciante', icon: Target },
-      { value: 'intermediate', label: 'Intermediário', icon: TrendingUp },
-      { value: 'advanced', label: 'Avançado', icon: Rocket },
+      { value: 'beginner', label: 'Iniciante' },
+      { value: 'intermediate', label: 'Intermediário' },
+      { value: 'advanced', label: 'Avançado' },
     ],
   },
   {
@@ -83,10 +79,10 @@ const steps: Step[] = [
     icon: Clock,
     field: 'timePerDay',
     options: [
-      { value: '15min', label: '15 minutos por dia' },
-      { value: '30min', label: '30 minutos por dia' },
-      { value: '1hour', label: '1 hora por dia' },
-      { value: '2hours', label: '2+ horas por dia' },
+      { value: '15min', label: '15 minutos' },
+      { value: '30min', label: '30 minutos' },
+      { value: '1hour', label: '1 hora' },
+      { value: '2hours', label: '2+ horas' },
     ],
   },
   {
@@ -96,10 +92,10 @@ const steps: Step[] = [
     icon: BookOpen,
     field: 'learningStyle',
     options: [
-      { value: 'visual', label: 'Visual e Diagramática' },
-      { value: 'reading', label: 'Leitura e Textual' },
-      { value: 'hands-on', label: 'Prática Aplicada' },
-      { value: 'discussion', label: 'Discussão e Diálogo' },
+      { value: 'visual', label: 'Visual' },
+      { value: 'reading', label: 'Leitura' },
+      { value: 'hands-on', label: 'Prática' },
+      { value: 'discussion', label: 'Discussão' },
     ],
   },
   {
@@ -110,12 +106,10 @@ const steps: Step[] = [
     field: 'difficulties',
     multiSelect: true,
     options: [
-      { value: 'time', label: 'Tempo Limitado Disponível' },
-      { value: 'motivation', label: 'Manter a Motivação' },
-      { value: 'focus', label: 'Manter o Foco' },
-      { value: 'resources', label: 'Encontrar Bons Recursos' },
-      { value: 'structure', label: 'Falta de Estrutura' },
-      { value: 'practice', label: 'Oportunidades de Prática' },
+      { value: 'time', label: 'Tempo limitado' },
+      { value: 'motivation', label: 'Motivação' },
+      { value: 'focus', label: 'Foco' },
+      { value: 'resources', label: 'Recursos' },
     ],
   },
   {
@@ -128,9 +122,7 @@ const steps: Step[] = [
       { value: 'career', label: 'Avanço na Carreira' },
       { value: 'pivot', label: 'Transição de Carreira' },
       { value: 'skills', label: 'Desenvolvimento de Habilidades' },
-      { value: 'knowledge', label: 'Busca do Conhecimento' },
-      { value: 'degree', label: 'Credenciais Acadêmicas' },
-      { value: 'business', label: 'Objetivos Empresariais' },
+      { value: 'knowledge', label: 'Conhecimento' },
     ],
   },
 ];
@@ -190,7 +182,6 @@ export default function OnboardingPage() {
 
   const handleSubmit = () => {
     setIsSubmitting(true);
-
     setTimeout(() => {
       const userData: UserData = {
         name: 'Estudante',
@@ -208,179 +199,194 @@ export default function OnboardingPage() {
         completedLessons: [],
         currentCourses: [],
       };
-
       setUser(userData);
-      navigate('/diagnosis');
+      navigate('/dashboard');
     }, 1000);
   };
 
   const progress = ((currentStep + 1) / steps.length) * 100;
+  const step = steps[currentStep];
+  const IconComponent = step.icon;
 
   return (
-    <div className="min-h-screen bg-nexo-bg relative overflow-hidden">
-      <div className="relative min-h-screen flex flex-col">
-        {/* Progress bar */}
-        <div className="fixed top-0 left-0 right-0 z-50 h-1 bg-nexo-divider">
+    <div className="min-h-screen bg-nexo-bg">
+      <div className="max-w-7xl mx-auto px-6 py-12">
+        <div className="grid grid-cols-3 gap-6">
+          {/* COLUNA 1: Progresso */}
           <motion.div
-            className="h-full bg-nexo-red"
-            initial={{ width: 0 }}
-            animate={{ width: `${progress}%` }}
-            transition={{ duration: 0.4 }}
-          />
-        </div>
+            className="content-box"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="red-header mb-6">
+              QUESTIONÁRIO {currentStep + 1} DE {steps.length}
+            </div>
 
-        {/* Header */}
-        <div className="fixed top-4 right-8 z-40 flex items-center gap-3">
-          <img src="/Design_sem_nome_(22).png" alt="NIX" className="h-10 w-10 rounded-full object-cover" />
-          <div className="text-right">
-            <p className="text-xs text-nexo-red font-semibold">Seu Mentor</p>
-            <p className="text-[10px] text-nexo-text-secondary">NIX</p>
-          </div>
-        </div>
+            <div className="text-center mb-8">
+              <div className="flex items-center justify-center gap-1 mb-4">
+                <span className="text-nexo-red text-lg">★</span>
+                <span className="text-xs text-nexo-red font-bold uppercase tracking-widest">PASSO {currentStep + 1}/{steps.length}</span>
+                <span className="text-nexo-red text-lg">★</span>
+              </div>
 
-        {/* Main content */}
-        <div className="flex-1 flex items-center justify-center px-6 py-24">
-          <div className="w-full max-w-3xl">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentStep}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.4 }}
-              >
-                {/* Step indicator */}
-                <div className="text-center mb-10">
-                  <motion.div
-                    className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-nexo-red/10 border-2 border-nexo-red/30 mb-5"
-                    initial={{ scale: 0.9 }}
-                    animate={{ scale: 1 }}
-                    transition={{ type: 'spring' }}
-                  >
-                    {(() => {
-                      const IconComponent = steps[currentStep].icon;
-                      return <IconComponent className="w-6 h-6 text-nexo-red" />;
-                    })()}
-                  </motion.div>
+              <div className="w-12 h-12 rounded-full bg-nexo-red/10 border-2 border-nexo-red flex items-center justify-center mx-auto mb-4">
+                <IconComponent className="w-6 h-6 text-nexo-red" />
+              </div>
 
-                  <p className="text-xs text-nexo-red font-semibold uppercase tracking-widest mb-3">
-                    Pergunta {currentStep + 1} de {steps.length}
-                  </p>
-                  <h1 className="serif-heading text-3xl md:text-4xl mb-3 text-nexo-text">
-                    {steps[currentStep]?.title}
-                  </h1>
-                  <p className="text-nexo-text-secondary">
-                    {steps[currentStep]?.subtitle}
-                  </p>
-                </div>
+              <h2 className="section-title text-xl mb-2">{step.title}</h2>
+              <p className="text-sm text-nexo-text-secondary mb-6">{step.subtitle}</p>
+            </div>
 
-                {/* Options */}
-                <div className="grid gap-3 md:grid-cols-2">
-                  {steps[currentStep].options?.map((option, index) => (
-                    <motion.button
-                      key={option.value}
-                      onClick={() =>
-                        handleSelect(
-                          steps[currentStep].field,
-                          option.value,
-                          steps[currentStep].multiSelect
-                        )
-                      }
-                      className={`relative p-4 rounded text-left transition-all ${
-                        isSelected(steps[currentStep].field, option.value)
-                          ? 'bg-nexo-red/10 border-2 border-nexo-red'
-                          : 'bg-nexo-cream-light hover:bg-nexo-cream-dark border border-nexo-divider'
-                      }`}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.1 + index * 0.05 }}
-                      whileHover={{ scale: 1.01 }}
-                      whileTap={{ scale: 0.99 }}
-                    >
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          {option.icon && (
-                            <option.icon className={`w-4 h-4 ${
-                              isSelected(steps[currentStep].field, option.value)
-                                ? 'text-nexo-red'
-                                : 'text-nexo-text-secondary'
-                            }`} />
-                          )}
-                          <span className="text-sm font-medium text-nexo-text">{option.label}</span>
-                        </div>
+            <div className="space-y-3 mb-8">
+              {step.options?.map((option, idx) => (
+                <motion.button
+                  key={option.value}
+                  onClick={() => handleSelect(step.field, option.value, step.multiSelect)}
+                  className={`w-full p-4 rounded-lg border-2 text-left transition-all ${
+                    isSelected(step.field, option.value)
+                      ? 'bg-nexo-red/10 border-nexo-red'
+                      : 'bg-nexo-cream-light border-nexo-cream-dark hover:border-nexo-red'
+                  }`}
+                  whileHover={{ scale: 1.01 }}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.05 }}
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-bold text-nexo-text uppercase">{option.label}</span>
+                    {isSelected(step.field, option.value) && (
+                      <Check className="w-4 h-4 text-nexo-red" />
+                    )}
+                  </div>
+                </motion.button>
+              ))}
+            </div>
 
-                        {isSelected(steps[currentStep].field, option.value) && (
-                          <motion.div
-                            initial={{ scale: 0 }}
-                            animate={{ scale: 1 }}
-                            transition={{ type: 'spring' }}
-                          >
-                            <Check className="w-4 h-4 text-nexo-red" />
-                          </motion.div>
-                        )}
-                      </div>
-                    </motion.button>
-                  ))}
-                </div>
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Navigation */}
-            <div className="flex items-center justify-between mt-12">
+            {/* Navegação */}
+            <div className="flex gap-3">
               <motion.button
                 onClick={handleBack}
                 disabled={currentStep === 0}
-                className={`flex items-center gap-2 px-4 py-2 rounded transition-all ${
-                  currentStep === 0
-                    ? 'opacity-30 cursor-not-allowed'
-                    : 'hover:bg-nexo-cream-dark text-nexo-text-secondary'
-                }`}
-                whileHover={currentStep > 0 ? { x: -3 } : {}}
+                className={`flex-1 btn-secondary disabled:opacity-30 disabled:cursor-not-allowed`}
               >
-                <ChevronLeft className="w-4 h-4" />
-                <span className="text-sm">Anterior</span>
+                ← ANTERIOR
               </motion.button>
-
-              <div className="flex items-center gap-2">
-                <span className="text-sm text-nexo-text-secondary">
-                  {currentStep + 1} / {steps.length}
-                </span>
-              </div>
-
               <motion.button
                 onClick={handleNext}
                 disabled={!canProceed() || isSubmitting}
-                className={`flex items-center gap-2 px-6 py-2 rounded font-medium transition-all ${
-                  canProceed() && !isSubmitting
-                    ? 'btn-primary'
-                    : 'bg-nexo-divider text-nexo-text-muted cursor-not-allowed'
-                }`}
-                whileHover={canProceed() && !isSubmitting ? { scale: 1.02 } : {}}
-                whileTap={canProceed() && !isSubmitting ? { scale: 0.98 } : {}}
+                className={`flex-1 ${!canProceed() || isSubmitting ? 'opacity-50 cursor-not-allowed bg-nexo-divider text-nexo-text-secondary' : 'btn-primary'}`}
               >
-                {isSubmitting ? (
-                  <>
-                    <motion.div
-                      className="w-4 h-4 border-2 border-nexo-bg border-t-transparent rounded-full"
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-                    />
-                    <span className="text-sm">Analisando...</span>
-                  </>
-                ) : currentStep === steps.length - 1 ? (
-                  <>
-                    <span className="text-sm">Concluir</span>
-                    <Rocket className="w-4 h-4" />
-                  </>
-                ) : (
-                  <>
-                    <span className="text-sm">Continuar</span>
-                    <ChevronRight className="w-4 h-4" />
-                  </>
-                )}
+                {isSubmitting ? 'ANALISANDO...' : currentStep === steps.length - 1 ? 'CONCLUIR' : 'CONTINUAR →'}
               </motion.button>
             </div>
-          </div>
+
+            {/* Indicador de página */}
+            <div className="flex justify-center gap-2 mt-6">
+              {steps.map((_, i) => (
+                <div
+                  key={i}
+                  className={`h-2 rounded-full transition-all ${
+                    i === currentStep ? 'bg-nexo-red w-6' : 'bg-nexo-divider w-2'
+                  }`}
+                />
+              ))}
+            </div>
+          </motion.div>
+
+          {/* COLUNA 2: Dicas/Informações */}
+          <motion.div
+            className="content-box"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <div className="red-header mb-4">
+              DICAS IMPORTANTES
+            </div>
+
+            <div className="space-y-4">
+              <div className="bg-nexo-cream-light border-l-4 border-nexo-red p-4 rounded">
+                <h4 className="font-bold text-nexo-red uppercase text-xs mb-2">HONESTIDADE</h4>
+                <p className="text-xs text-nexo-text leading-relaxed">
+                  Responda com sinceridade. Quanto mais precisos forem seus dados, melhor NIX poderá personalizar seu caminho.
+                </p>
+              </div>
+
+              <div className="bg-nexo-cream-light border-l-4 border-nexo-red p-4 rounded">
+                <h4 className="font-bold text-nexo-red uppercase text-xs mb-2">TEMPO</h4>
+                <p className="text-xs text-nexo-text leading-relaxed">
+                  Este questionário leva apenas 5 minutos. Seu investimento inicial vale muito a pena.
+                </p>
+              </div>
+
+              <div className="bg-nexo-cream-light border-l-4 border-nexo-red p-4 rounded">
+                <h4 className="font-bold text-nexo-red uppercase text-xs mb-2">DEPOIS</h4>
+                <p className="text-xs text-nexo-text leading-relaxed">
+                  Após concluir, você receberá um plano personalizado criado especialmente para você.
+                </p>
+              </div>
+            </div>
+
+            {/* Progresso visual */}
+            <div className="mt-8 pt-6 border-t-2 border-nexo-red">
+              <p className="text-xs text-nexo-text-secondary uppercase font-bold mb-3">PROGRESSO</p>
+              <div className="bg-nexo-cream-dark rounded-full h-3 overflow-hidden">
+                <motion.div
+                  className="bg-nexo-red h-full rounded-full"
+                  initial={{ width: 0 }}
+                  animate={{ width: `${progress}%` }}
+                  transition={{ duration: 0.5 }}
+                />
+              </div>
+              <p className="text-xs text-nexo-red font-bold mt-2">{Math.round(progress)}%</p>
+            </div>
+          </motion.div>
+
+          {/* COLUNA 3: Mascote + Motivação */}
+          <motion.div
+            className="content-box"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <div className="red-header mb-4">
+              MENTOR NIX
+            </div>
+
+            <div className="text-center mb-6">
+              <img src="/Design_sem_nome_(22).png" alt="NIX" className="h-24 w-24 rounded-full object-cover mx-auto mb-4" />
+              <h3 className="font-bold text-nexo-red uppercase text-sm">Olá, Estudante!</h3>
+              <p className="text-[10px] text-nexo-text-secondary mt-1">Seu Mentor de Evolução</p>
+            </div>
+
+            <div className="bg-nexo-red text-nexo-cream p-4 rounded-lg mb-6 text-center">
+              <p className="text-xs leading-relaxed font-medium">
+                Estou aqui para guiar sua jornada. Cada resposta nos aproxima do seu plano perfeito.
+              </p>
+            </div>
+
+            {/* Status Cards */}
+            <div className="space-y-3 mb-6">
+              <div className="bg-nexo-cream-light border-2 border-nexo-red p-3 rounded text-center">
+                <p className="text-[10px] text-nexo-text-secondary uppercase font-bold">Questões Respondidas</p>
+                <p className="text-lg font-bold text-nexo-red">{currentStep + 1}/{steps.length}</p>
+              </div>
+
+              <div className="bg-nexo-cream-light border-2 border-nexo-red p-3 rounded text-center">
+                <p className="text-[10px] text-nexo-text-secondary uppercase font-bold">Tempo Estimado</p>
+                <p className="text-lg font-bold text-nexo-red">{Math.ceil((steps.length - currentStep) * 0.8)}min</p>
+              </div>
+            </div>
+
+            {/* Quote */}
+            <div className="bg-nexo-red/10 border-2 border-nexo-red p-4 rounded-lg">
+              <p className="text-xs text-nexo-text font-medium leading-relaxed mb-3">
+                "{currentStep === 0 ? 'O primeiro passo determina toda a jornada.' : currentStep === 1 ? 'Seu contexto profissional importa.' : currentStep === 2 ? 'Honestidade sobre nível acelera progresso.' : 'Consistência vence intensidade.' }"
+              </p>
+              <p className="text-[10px] text-nexo-red font-bold">— NIX</p>
+            </div>
+          </motion.div>
         </div>
       </div>
     </div>
