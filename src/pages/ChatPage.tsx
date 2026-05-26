@@ -10,7 +10,6 @@ import {
   ChevronLeft,
   Brain,
 } from 'lucide-react';
-import { NIXMascot } from '../components/NIXMascot';
 
 interface Message {
   id: string;
@@ -115,7 +114,7 @@ export default function ChatPage() {
       {/* Left Panel - NIX */}
       <div className="hidden lg:flex w-72 bg-nexo-cream-light border-r border-nexo-divider flex-col items-center justify-center relative overflow-hidden">
         <div className="relative z-10 text-center px-6">
-          <NIXMascot size="lg" className="mx-auto mb-6" />
+          <img src="/Design_sem_nome_(22).png" alt="NIX" className="h-40 w-40 rounded-full mx-auto mb-6 object-cover" />
 
           <h2 className="serif-heading text-2xl mb-1 text-nexo-red">NIX</h2>
           <p className="text-xs text-nexo-text-secondary uppercase tracking-widest mb-6">Seu Mentor</p>
@@ -153,7 +152,7 @@ export default function ChatPage() {
               <ChevronLeft className="w-5 h-5" />
             </button>
             <div className="flex items-center gap-2">
-              <NIXMascot size="sm" />
+              <img src="/Design_sem_nome_(22).png" alt="NIX" className="h-10 w-10 rounded-full object-cover" />
               <div>
                 <h1 className="font-medium serif-heading text-nexo-red">NIX</h1>
                 <div className="flex items-center gap-1.5">
@@ -180,7 +179,7 @@ export default function ChatPage() {
                 >
                   {message.role === 'assistant' && (
                     <div className="flex-shrink-0 pt-1">
-                      <NIXMascot size="sm" />
+                      <img src="/Design_sem_nome_(22).png" alt="NIX" className="h-8 w-8 rounded-full object-cover" />
                     </div>
                   )}
 
@@ -231,7 +230,7 @@ export default function ChatPage() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
               >
-                <NIXMascot size="sm" />
+                <img src="/Design_sem_nome_(22).png" alt="NIX" className="h-8 w-8 rounded-full object-cover flex-shrink-0" />
                 <div className="bg-nexo-cream-light border border-nexo-divider rounded-xl p-4">
                   <div className="flex gap-1.5">
                     {[0, 1, 2].map((i) => (

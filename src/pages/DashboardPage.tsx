@@ -91,7 +91,7 @@ export default function DashboardPage() {
       {/* Sidebar */}
       <div className="fixed left-0 top-0 bottom-0 w-20 bg-nexo-cream-dark border-r border-nexo-divider flex flex-col items-center py-6">
         <motion.div className="mb-8" initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}>
-          <NIXMascot size="sm" variant="simple" />
+          <img src="/Design_sem_nome_(22).png" alt="NIX" className="h-12 w-12 rounded-full object-cover" />
         </motion.div>
 
         <nav className="flex-1 flex flex-col gap-4">
@@ -309,7 +309,7 @@ export default function DashboardPage() {
             {/* NIX Assistant */}
             <motion.div className="card" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }}>
               <div className="flex items-center gap-3 mb-4">
-                <NIXMascot size="sm" variant="simple" />
+                <img src="/Design_sem_nome_(22).png" alt="NIX" className="h-12 w-12 rounded-full object-cover" />
                 <div>
                   <h3 className="font-medium text-sm text-nexo-text">NIX</h3>
                   <p className="text-[10px] text-nexo-text-secondary">Seu Mentor</p>

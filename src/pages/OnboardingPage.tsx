@@ -218,14 +218,6 @@ export default function OnboardingPage() {
 
   return (
     <div className="min-h-screen bg-nexo-bg relative overflow-hidden">
-      {/* Subtle background */}
-      <div className="fixed inset-0 pointer-events-none opacity-3">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'repeating-linear-gradient(90deg, #B61F1F, #B61F1F 1px, transparent 1px, transparent 20px)',
-          backgroundSize: '20px 20px'
-        }} />
-      </div>
-
       <div className="relative min-h-screen flex flex-col">
         {/* Progress bar */}
         <div className="fixed top-0 left-0 right-0 z-50 h-1 bg-nexo-divider">
@@ -238,8 +230,8 @@ export default function OnboardingPage() {
         </div>
 
         {/* Header */}
-        <div className="fixed top-4 right-8 z-40 flex items-center gap-2">
-          <NIXMascot size="sm" variant="simple" />
+        <div className="fixed top-4 right-8 z-40 flex items-center gap-3">
+          <img src="/Design_sem_nome_(22).png" alt="NIX" className="h-10 w-10 rounded-full object-cover" />
           <div className="text-right">
             <p className="text-xs text-nexo-red font-semibold">Seu Mentor</p>
             <p className="text-[10px] text-nexo-text-secondary">NIX</p>

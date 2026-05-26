@@ -85,15 +85,7 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-6">
-        {/* Subtle background pattern */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'repeating-linear-gradient(90deg, #B61F1F, #B61F1F 2px, transparent 2px, transparent 20px)',
-            backgroundSize: '20px 20px'
-          }} />
-        </div>
-
+      <section className="relative pt-32 pb-24 px-6">
         <div className="max-w-6xl mx-auto relative">
           <div className="max-w-3xl mx-auto text-center">
             {/* Tagline */}
@@ -167,14 +159,14 @@ export default function LandingPage() {
             </motion.div>
           </div>
 
-          {/* NIX Mascot */}
+          {/* Eagle Logo */}
           <motion.div
-            className="flex justify-center mt-16"
+            className="flex justify-center mt-20"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <NIXMascot size="lg" variant="badge" />
+            <img src="/Design_sem_nome_(21).png" alt="NEXO Academy" className="h-64 w-auto drop-shadow-lg" />
           </motion.div>
         </div>
       </section>
@@ -291,7 +283,7 @@ export default function LandingPage() {
             viewport={{ once: true }}
           >
             <div className="mb-6">
-              <NIXMascot size="lg" variant="badge" className="mx-auto mb-6" />
+              <img src="/Design_sem_nome_(21).png" alt="NEXO Academy" className="h-40 w-auto mx-auto mb-6" />
             </div>
 
             <h2 className="serif-heading text-3xl md:text-4xl mb-4 text-nexo-text">
