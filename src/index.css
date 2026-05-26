@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #0A0E1A;
+    color: #F5F0E8;
+    overflow-x: hidden;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0A0E1A;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #C9A962;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #D4B978;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: rgba(21, 29, 46, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(42, 52, 72, 0.3);
+  }
+
+  .text-gold {
+    @apply text-nexo-gold;
+  }
+
+  .gradient-gold-text {
+    background: linear-gradient(135deg, #C9A962 0%, #D4B978 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 font-semibold rounded-lg;
+    background: #C9A962;
+    color: #0A0E1A;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background: #D4B978;
+    box-shadow: 0 8px 24px rgba(201, 169, 98, 0.25);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 font-semibold rounded-lg;
+    background: #1E3A5F;
+    color: #F5F0E8;
+    transition: all 0.3s ease;
+  }
+
+  .btn-secondary:hover {
+    background: #2D5A8B;
+  }
+
+  .btn-outline {
+    @apply px-6 py-3 font-semibold rounded-lg;
+    border: 1.5px solid #C9A962;
+    background: transparent;
+    color: #C9A962;
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline:hover {
+    background: rgba(201, 169, 98, 0.1);
+  }
+
+  .card {
+    @apply rounded-xl p-6;
+    background: linear-gradient(135deg, rgba(21, 29, 46, 0.9) 0%, rgba(17, 24, 39, 0.9) 100%);
+    border: 1px solid rgba(42, 52, 72, 0.4);
+    transition: all 0.3s ease;
+  }
+
+  .card:hover {
+    border-color: rgba(201, 169, 98, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-elevated {
+    @apply rounded-xl p-6;
+    background: #1A2334;
+    border: 1px solid rgba(42, 52, 72, 0.4);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
+  }
+
+  .card-elevated:hover {
+    border-color: rgba(201, 169, 98, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  }
+
+  .gold-border {
+    position: relative;
+  }
+
+  .gold-border::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #C9A962;
+    border-radius: 2px;
+  }
+
+  .gold-underline {
+    position: relative;
+    display: inline-block;
+  }
+
+  .gold-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #C9A962;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .gold-underline:hover::after {
+    transform: scaleX(1);
+  }
+
+  .serif-heading {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .progress-track {
+    @apply rounded-full overflow-hidden;
+    background: #1A2334;
+  }
+
+  .progress-fill {
+    @apply h-full rounded-full;
+    background: #C9A962;
+    transition: width 0.5s ease;
+  }
+
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201, 169, 98, 0.3), transparent);
+  }
+}
+
+@layer utilities {
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #C9A962 0%, #D4B978 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .border-subtle {
+    border-color: rgba(42, 52, 72, 0.4);
+  }
+}
