@@ -17,6 +17,7 @@ import {
   TrendingUp,
   MessageSquare,
 } from 'lucide-react';
+import { NIXMascot } from '../components/NIXMascot';
 
 interface Lesson {
   id: string;
@@ -181,7 +182,7 @@ export default function CoursePage() {
             onClick={() => navigate('/chat')}
             className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-nexo-divider hover:bg-nexo-beige transition-colors"
           >
-            <img src="/Design_sem_nome_(22).png" alt="NIX" className="h-6 w-6 rounded-full object-cover" />
+            <NIXMascot size="sm" />
             <span className="text-xs text-nexo-text">Consultar NIX</span>
           </button>
         </div>
@@ -434,7 +435,7 @@ export default function CoursePage() {
               transition={{ delay: 0.15 }}
             >
               <div className="flex items-center gap-2 mb-4">
-                <img src="/Design_sem_nome_(22).png" alt="NIX" className="h-8 w-8 rounded-full object-cover" />
+                <NIXMascot size="sm" />
                 <div>
                   <h3 className="font-medium text-sm">Notas NIX</h3>
                   <p className="text-[10px] text-nexo-text-secondary">Insights principais</p>

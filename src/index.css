@@ -8,7 +8,7 @@
   }
 
   body {
-    font-family: 'Merriweather', 'Georgia', serif;
+    font-family: 'Inter', system-ui, sans-serif;
     background-color: #FFF7F2;
     color: #2C2C2C;
     overflow-x: hidden;
@@ -33,147 +33,190 @@
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #A01818;
+    background: #C92A2A;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Lora', 'Georgia', serif;
-    font-weight: 700;
-    letter-spacing: -0.01em;
+  h1, h2, h3 {
+    font-family: 'Lora', Georgia, serif;
   }
 }
 
 @layer components {
-  /* Content Box - Estilo principal da interface */
-  .content-box {
-    @apply rounded-lg;
-    background: #FFF7F2;
-    border: 2px solid #B61F1F;
-    padding: 24px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  .glass-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(212, 196, 184, 0.4);
   }
 
-  .content-box-sm {
-    @apply rounded-lg;
-    background: #FFF7F2;
-    border: 2px solid #B61F1F;
-    padding: 16px;
+  .text-red {
+    @apply text-nexo-red;
   }
 
-  /* Header vermelho - Caixas de título */
-  .red-header {
-    @apply px-4 py-2 rounded-t-lg font-bold text-sm uppercase tracking-wider;
-    background: #B61F1F;
-    color: #FFF7F2;
-    letter-spacing: 0.05em;
+  .gradient-red-text {
+    background: linear-gradient(135deg, #B61F1F 0%, #C92A2A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  /* Botão estilo da interface */
   .btn-primary {
-    @apply px-8 py-3 font-bold rounded-lg uppercase tracking-wider;
+    @apply px-6 py-3 font-semibold rounded;
     background: #B61F1F;
     color: #FFF7F2;
-    border: 2px solid #B61F1F;
     transition: all 0.3s ease;
-    font-size: 0.875rem;
+    border: 1px solid #B61F1F;
   }
 
   .btn-primary:hover {
     background: #A01818;
     border-color: #A01818;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(182, 31, 31, 0.25);
+    box-shadow: 0 4px 12px rgba(182, 31, 31, 0.2);
+    transform: translateY(-1px);
   }
 
   .btn-secondary {
-    @apply px-6 py-2 font-bold rounded-lg uppercase tracking-wider;
+    @apply px-6 py-3 font-semibold rounded;
     background: transparent;
     color: #B61F1F;
-    border: 2px solid #B61F1F;
+    border: 1.5px solid #B61F1F;
     transition: all 0.3s ease;
-    font-size: 0.875rem;
   }
 
   .btn-secondary:hover {
-    background: #B61F1F;
-    color: #FFF7F2;
+    background: rgba(182, 31, 31, 0.05);
   }
 
   .btn-outline {
-    @apply px-6 py-2 font-bold rounded-lg uppercase tracking-wider;
+    @apply px-6 py-3 font-semibold rounded;
+    border: 1.5px solid #B61F1F;
     background: transparent;
     color: #B61F1F;
-    border: 2px solid #B61F1F;
     transition: all 0.3s ease;
   }
 
   .btn-outline:hover {
-    background: #B61F1F;
-    color: #FFF7F2;
+    background: rgba(182, 31, 31, 0.05);
   }
 
-  /* Card para grades e conteúdo */
   .card {
-    @apply rounded-lg p-4;
+    @apply rounded p-6;
     background: #FFFFFF;
-    border: 2px solid #B61F1F;
+    border: 1px solid #E8D4C4;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
     transition: all 0.3s ease;
   }
 
   .card:hover {
-    box-shadow: 0 6px 16px rgba(182, 31, 31, 0.15);
-    transform: translateY(-2px);
+    border-color: #D4C4B8;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .card-elevated {
-    @apply rounded-lg p-6;
+    @apply rounded p-6;
     background: #FFFFFF;
-    border: 2px solid #B61F1F;
-    box-shadow: 0 4px 12px rgba(182, 31, 31, 0.1);
+    border: 1px solid #D4C4B8;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
   }
 
-  /* Título de seção */
-  .section-title {
-    @apply text-2xl font-bold uppercase tracking-wider;
-    color: #B61F1F;
-    font-family: 'Lora', Georgia, serif;
+  .card-elevated:hover {
+    border-color: #B61F1F;
+    box-shadow: 0 4px 16px rgba(182, 31, 31, 0.1);
   }
 
-  /* Label/Badge */
-  .label-badge {
-    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider;
+  .red-border {
+    position: relative;
+  }
+
+  .red-border::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
     background: #B61F1F;
-    color: #FFF7F2;
+    border-radius: 1px;
   }
 
-  /* Divisor */
-  .divider-red {
-    @apply my-4;
-    border-top: 2px solid #B61F1F;
+  .red-underline {
+    position: relative;
+    display: inline-block;
   }
 
-  /* Stats container */
-  .stats-container {
-    @apply grid gap-3;
+  .red-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #B61F1F;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
   }
 
-  .stat-item {
-    @apply flex items-center justify-between px-4 py-2;
-    background: #FFF7F2;
-    border-left: 3px solid #B61F1F;
+  .red-underline:hover::after {
+    transform: scaleX(1);
+  }
+
+  .serif-heading {
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .progress-track {
+    @apply rounded-full overflow-hidden;
+    background: #F5E8E3;
+  }
+
+  .progress-fill {
+    @apply h-full rounded-full;
+    background: #B61F1F;
+    transition: width 0.5s ease;
+  }
+
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(182, 31, 31, 0.15), transparent);
+  }
+
+  .academic-frame {
+    border: 2px solid #B61F1F;
+    border-radius: 0;
+    padding: 24px;
+    background: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .badge-seal {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 3px solid #B61F1F;
+    box-shadow: 0 4px 12px rgba(182, 31, 31, 0.15);
   }
 }
 
 @layer utilities {
-  .text-red-primary {
-    @apply text-nexo-red font-bold;
+  .text-red-gradient {
+    background: linear-gradient(135deg, #B61F1F 0%, #C92A2A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  .uppercase-tight {
-    @apply uppercase tracking-wider;
+  .border-subtle {
+    border-color: #E8D4C4;
   }
 
-  .border-red-thick {
-    @apply border-2 border-nexo-red;
+  .border-academic {
+    border: 2px solid #B61F1F;
   }
 }

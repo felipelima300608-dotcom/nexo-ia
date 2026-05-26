@@ -192,7 +192,7 @@ export default function DiagnosisPage() {
             animate={{ opacity: 1, y: 0 }}
           >
             <div className="flex items-center justify-center mb-4">
-              <img src="/Design_sem_nome_(21).png" alt="NEXO" className="h-32 w-auto" />
+              <NIXMascot size="md" variant="badge" />
             </div>
 
             <motion.div
